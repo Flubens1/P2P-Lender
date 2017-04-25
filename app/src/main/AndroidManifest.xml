@@ -24,7 +24,8 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
-        <activity android:name=".MyPocket"></activity>
+        <activity android:name=".MyPocket" />
+        <activity android:name=".NewOffer"></activity>
     </application>
 
 </manifest>
