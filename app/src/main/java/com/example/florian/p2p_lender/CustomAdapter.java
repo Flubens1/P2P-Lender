@@ -31,7 +31,9 @@ public class CustomAdapter extends ArrayAdapter<String> {
         String item = getItem(position);
         TextView text = (TextView)customView.findViewById(R.id.customRowText);
         ImageView image = (ImageView)customView.findViewById(R.id.customRowImage);
+        TextView bewertung = (TextView)customView.findViewById(R.id.bewertung);
 
+        bewertung.setText("Bewertung");
         text.setText(item);
         image.setImageResource(R.drawable.p2p_tasten);
         return customView;
