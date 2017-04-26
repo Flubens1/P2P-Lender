@@ -14,8 +14,8 @@ public class LoanList extends AppCompatActivity {
         setContentView(R.layout.activity_loan_list);
 
 
-        String[] foods = {"Bacon", "Ham", "Tuna", "Candy", "Meatball", "Potatoe"};
-        ListAdapter adapter = new CustomAdapter(this, foods);
+        String[] user = {"Martin", "Aldin", "Flo", "Candy", "Andy", "Minty"};
+        ListAdapter adapter = new CustomAdapter(this, user);
         ListView listView = (ListView)findViewById(R.id.loanListView);
         listView.setAdapter(adapter);
 

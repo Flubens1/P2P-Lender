@@ -17,8 +17,8 @@ import android.widget.TextView;
 
 public class CustomAdapter extends ArrayAdapter<String> {
 
-    public CustomAdapter( Context context, String[] foods) {
-        super(context, R.layout.custom_row, foods);
+    public CustomAdapter( Context context, String[] user) {
+        super(context, R.layout.custom_row, user);
     }
 
     @NonNull
