@@ -9,7 +9,7 @@ import android.widget.Button;
 public class MyPocket extends AppCompatActivity implements View.OnClickListener{
 
     Button newOffer;
-
+    Button listViewButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +18,9 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
 
         newOffer = (Button)findViewById(R.id.offerButton);
         newOffer.setOnClickListener(this);
+        listViewButton = (Button)findViewById(R.id.listViewButton);
+        listViewButton.setOnClickListener(this);
+
 
 
     }
@@ -26,6 +29,10 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View v) {
         if (v==newOffer) {
             Intent intent = new Intent(this, NewOffer.class);
+            startActivity(intent);
+        }
+        if (v==listViewButton) {
+            Intent intent = new Intent(this, LoanList.class);
             startActivity(intent);
         }
     }
