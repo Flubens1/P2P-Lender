@@ -61,10 +61,12 @@ public class NewOffer extends AppCompatActivity{
 
             FileOutputStream oS = openFileOutput(file, Context.MODE_PRIVATE);
 
+            Toast.makeText(NewOffer.this, "Success saving file!", Toast.LENGTH_LONG);
+
             oS.write(text.getBytes());
             oS.close();
 
-            Toast.makeText(NewOffer.this, "Success saving file!", Toast.LENGTH_LONG);
+
 
         } catch (Exception e) {
             e.printStackTrace();
