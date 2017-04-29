@@ -19,7 +19,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        
+
         signUp = (Button) findViewById(R.id.signUpButton);
         signUp.setOnClickListener(this);
     }
@@ -33,7 +33,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 passwordConfirmation = (EditText) findViewById(R.id.secondPasswordInput);
 
                 if (passwordConfirmation.getText().toString().equals(passwordInput.getText().toString()) &&
-                        emailAddress.getText().toString().matches(mailPattern)) {
+                        emailAddress.getText().toString().matches(mailPattern) &&
+                        passwordInput.getText().toString().length() != 0 &&
+                        passwordConfirmation.getText().toString().length() != 0) {
 
                     Intent intent = new Intent(this, MainActivity.class);
                     startActivity(intent);
@@ -45,6 +47,13 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                         alertDialog.setMessage("Email address does not conform to standard");
                         alertDialog.show();
                     }
+
+                    else if (passwordInput.getText().toString().length() == 0 ||
+                            passwordConfirmation.getText().toString().length() == 0) {
+                        alertDialog.setMessage("Password field is empty!");
+                        alertDialog.show();
+                    }
+
                     else if (!passwordConfirmation.getText().toString().equals(passwordInput.getText().toString())) {
                         alertDialog.setMessage("Password inputs didn't match up!");
                         alertDialog.show();
