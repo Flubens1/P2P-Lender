@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    Button logIn;
+    Button logIn, signUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,13 +18,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         logIn = (Button)findViewById(R.id.logInButton);
         logIn.setOnClickListener(this);
 
+        signUp = (Button)findViewById(R.id.signUpButton);
+        signUp.setOnClickListener(this);
+
+
+
     }
 
     @Override
     public void onClick(View v) {
 
-        if (v==logIn) {
+        if (v == logIn) {
             Intent intent = new Intent(this, MyPocket.class);
+            startActivity(intent);
+        }
+
+        else if (v == signUp) {
+            Intent intent = new Intent(this, SignUpActivity.class);
             startActivity(intent);
         }
 
