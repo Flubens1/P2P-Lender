@@ -1,8 +1,7 @@
 package com.example.florian.p2p_lender;
 
 import android.content.Context;
-import android.os.Environment;
-import android.support.annotation.Nullable;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +10,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -22,17 +20,21 @@ public class NewOffer extends AppCompatActivity{
     Button saveButton;
     Button showButton;
     EditText input;
+    EditText name;
     TextView output;
-    String filename = "myfile.txt";
 
-
+    Button goToLoanList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_offer);
 
-        input = (EditText)findViewById(R.id.input);
+        name = (EditText)findViewById((R.id.editTextName));
+        input = (EditText)findViewById(R.id.inputText);
+
+        final String filename = name.getText().toString() + ".txt";
+
         saveButton = (Button)findViewById(R.id.save);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +56,16 @@ public class NewOffer extends AppCompatActivity{
             }
         });
 
+
+        goToLoanList = (Button)findViewById(R.id.goToLoanList);
+        goToLoanList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), LoanList.class);
+                intent.putExtra("filename", filename);
+                startActivity(intent);
+            }
+        });
     }
 
     public void saveFile(String file, String text) {

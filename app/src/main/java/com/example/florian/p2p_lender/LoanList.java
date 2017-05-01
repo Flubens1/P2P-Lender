@@ -13,7 +13,7 @@ import java.io.IOException;
 public class LoanList extends AppCompatActivity {
 
 
-    String filename = "myfile.txt";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,10 @@ public class LoanList extends AppCompatActivity {
         setContentView(R.layout.activity_loan_list);
 
 
-        String[] user = {"Martin" + readFile(filename), "Aldin", "Flo", "Candy", "Andy", "Minty"};
+        String filename = getIntent().getStringExtra("filename");
+
+
+        String[] user = {"Martin " + readFile(filename), "Aldin", "Flo", "Candy", "Andy", "Minty"};
         ListAdapter adapter = new CustomAdapter(this, user);
         ListView listView = (ListView)findViewById(R.id.loanListView);
         listView.setAdapter(adapter);
