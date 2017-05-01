@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class LoanList extends AppCompatActivity {
 
-String filename = "Martin.txt";
+String filename = "";
 
 
     @Override
