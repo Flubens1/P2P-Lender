@@ -14,6 +14,13 @@
         app:srcCompat="@drawable/cubics" />
 
     <TextView
+        android:id="@+id/bewertung"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.00"
+        android:text="TextView" />
+
+    <TextView
         android:id="@+id/customRowText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,10 +28,4 @@
         android:text="LargeText"
         android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/bewertung"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.00"
-        android:text="TextView" />
 </LinearLayout>
