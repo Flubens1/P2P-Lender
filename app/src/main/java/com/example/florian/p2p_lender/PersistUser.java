@@ -3,7 +3,7 @@ package com.example.florian.p2p_lender;
 import android.content.Context;
 import android.util.JsonReader;
 
-import com.example.florian.p2p_lender.Offer;
+
 import com.example.florian.p2p_lender.User;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -24,7 +24,7 @@ public class PersistUser {
     String filename = "userList.json";
     Gson gson = new Gson();
     JsonReader reader = null;
-    Type OFFER_TYPE = new TypeToken<ArrayList<Offer>>(){}.getType();
+    Type USER_TYPE = new TypeToken<ArrayList<User>>(){}.getType();
     Context ctx;
 
     public PersistUser(Context ctx) {
@@ -45,7 +45,7 @@ public class PersistUser {
             fileInputStream.read(buffer);
             fileInputStream.close();
             text = new String(buffer);
-            userList = gson.fromJson(text, OFFER_TYPE);
+            userList = gson.fromJson(text, USER_TYPE);
             System.out.println(userList.size());
             for (User u: userList){
                 System.out.println(u.toString());
