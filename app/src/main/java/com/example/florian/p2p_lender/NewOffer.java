@@ -35,78 +35,88 @@ public class NewOffer extends AppCompatActivity{
 
         final String filename = name.getText().toString() + ".txt";
 
+
         saveButton = (Button)findViewById(R.id.save);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                saveFile(filename, input.getText().toString());
-
-            }
-        });
-
-        output = (TextView)findViewById(R.id.show);
-        showButton = (Button)findViewById(R.id.load);
-        showButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                output.setText(readFile(filename));
-
-            }
-        });
-
-
-        goToLoanList = (Button)findViewById(R.id.goToLoanList);
-        goToLoanList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), LoanList.class);
-                intent.putExtra("filename", filename);
+                Offer o = new Offer(name.getText().toString(), input.getText().toString());
+                System.out.println("Save button pressed");
+                PersistOffers persistOffers = new PersistOffers();
+                persistOffers.saveOffer(o);
+                System.out.println("Saved probably");
+//                saveFile(filename, input.getText().toString());
+                Intent intent = new Intent(v.getContext(), MyPocket.class);
                 startActivity(intent);
+
             }
         });
+
+
+
+
+//        output = (TextView)findViewById(R.id.show);
+//        showButton = (Button)findViewById(R.id.load);
+//        showButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                output.setText(readFile(filename));
+//
+//            }
+//        });
+
+
+//        goToLoanList = (Button)findViewById(R.id.goToLoanList);
+//        goToLoanList.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(v.getContext(), LoanList.class);
+//                intent.putExtra("filename", filename);
+//                startActivity(intent);
+//            }
+//        });
     }
 
-    public void saveFile(String file, String text) {
-        try {
-
-            FileOutputStream oS = openFileOutput(file, Context.MODE_PRIVATE);
-
-            Toast.makeText(NewOffer.this, "Success saving file!", Toast.LENGTH_LONG);
-
-            oS.write(text.getBytes());
-            oS.close();
-
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(NewOffer.this, "Error saving file!", Toast.LENGTH_LONG);
-        }
-    }
-
-    public String readFile(String file) {
-
-        String text = "";
-
-        try {
-
-            FileInputStream fis = openFileInput(file);
-            int size = fis.available();
-            byte[] buffer = new byte[size];
-            fis.read(buffer);
-            fis.close();
-            text = new String(buffer);
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        return text;
-    }
+//    public void saveFile(String file, String text) {
+//        try {
+//
+//            FileOutputStream oS = openFileOutput(file, Context.MODE_PRIVATE);
+//
+//            Toast.makeText(NewOffer.this, "Success saving file!", Toast.LENGTH_LONG);
+//
+//            oS.write(text.getBytes());
+//            oS.close();
+//
+//
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            Toast.makeText(NewOffer.this, "Error saving file!", Toast.LENGTH_LONG);
+//        }
+//    }
+//
+//    public String readFile(String file) {
+//
+//        String text = "";
+//
+//        try {
+//
+//            FileInputStream fis = openFileInput(file);
+//            int size = fis.available();
+//            byte[] buffer = new byte[size];
+//            fis.read(buffer);
+//            fis.close();
+//            text = new String(buffer);
+//
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//
+//        return text;
+//    }
 
 }

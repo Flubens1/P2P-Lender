@@ -32,6 +32,7 @@
         <activity android:name=".MyLoans" />
         <activity android:name=".LoanList" />
         <activity android:name=".MyProfile" />
+        <activity android:name=".PersistOffers"/>
         <activity android:name=".DetailedOffer" />
         <activity android:name=".SignUpActivity"></activity>
     </application>
