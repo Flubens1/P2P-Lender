@@ -16,7 +16,7 @@ public class MyProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_profile);
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-        String name = pref.getString("userName", "");
+        String name = pref.getString("mail", "");
         System.out.println("MyProfile:");
         System.out.println(name);
 

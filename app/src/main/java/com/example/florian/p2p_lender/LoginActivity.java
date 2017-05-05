@@ -5,7 +5,9 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -208,6 +210,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         while (iterator.hasNext()) {
             temp = iterator.next();
             if (temp.getMailAddress().equals(email)) {
+                SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putString("mail", email);
+                editor.commit();
                 return email.contains("@");
             }
         }

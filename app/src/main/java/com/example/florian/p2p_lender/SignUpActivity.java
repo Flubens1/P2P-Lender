@@ -2,6 +2,8 @@ package com.example.florian.p2p_lender;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -53,6 +55,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
                     PersistUser pUser = new PersistUser(ctx);
                     pUser.saveUser(ctx, user);
+                    SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+                    SharedPreferences.Editor editor = pref.edit();
+                    editor.putString("mail", mailAddress);
+                    editor.commit();
 
                     Intent intent = new Intent(this, MainActivity.class);
                     startActivity(intent);
