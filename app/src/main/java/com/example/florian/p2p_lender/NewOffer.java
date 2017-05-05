@@ -24,6 +24,7 @@ public class NewOffer extends AppCompatActivity{
     TextView output;
 
     Button goToLoanList;
+    Context ctx = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,10 @@ public class NewOffer extends AppCompatActivity{
             public void onClick(View v) {
                 Offer o = new Offer(name.getText().toString(), input.getText().toString());
                 System.out.println("Save button pressed");
-                PersistOffers persistOffers = new PersistOffers();
+                PersistOffers persistOffers = new PersistOffers(ctx);
+//                Context ctx = null;
+//                ctx.getApplicationContext();
+
                 persistOffers.saveOffer(o);
                 System.out.println("Saved probably");
 //                saveFile(filename, input.getText().toString());

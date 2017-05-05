@@ -21,9 +21,13 @@ public class PersistOffers extends AppCompatActivity{
     Gson gson = new Gson();
     JsonReader reader = null;
     Type OFFER_TYPE = new TypeToken<ArrayList<Offer>>(){}.getType();
+    Context ctx;
 
+    public PersistOffers(Context ctx) {
+        this.ctx = ctx;
+    }
 
-            public ArrayList<Offer> getOfferList(){
+    public ArrayList<Offer> getOfferList(){
                 String text = "";
                 ArrayList<Offer> offers = null;
 
@@ -32,7 +36,7 @@ public class PersistOffers extends AppCompatActivity{
                     File file = new File(filename);
                     if (file.exists()){
                         System.out.println("try to fetch json");
-                        FileInputStream fileInputStream = openFileInput(filename);
+                        FileInputStream fileInputStream = ctx.openFileInput(filename);
                         int size = fileInputStream.available();
                         byte[] buffer = new byte[size];
                         fileInputStream.read(buffer);
@@ -64,7 +68,7 @@ public class PersistOffers extends AppCompatActivity{
                 offers.add(offer);
                 System.out.println("loaded offer list");
 
-                FileOutputStream fileOutputStream = null;
+                FileOutputStream fileOutputStream;
                 String offerJsonList = gson.toJson(offers);
                 System.out.println(offerJsonList);
                 for (Offer o: offers){
@@ -72,10 +76,10 @@ public class PersistOffers extends AppCompatActivity{
                 }
 
                 try {
-                    System.out.println("Test1");
-                    System.out.println(filename);
-                    fileOutputStream = getApplicationContext().openFileOutput(filename, Context.MODE_PRIVATE);
-                    System.out.println("Test2");
+//                    System.out.println("Test1");
+//                    System.out.println(filename);
+                    fileOutputStream = ctx.openFileOutput(filename, Context.MODE_PRIVATE);
+//                    System.out.println("Test2");
                     fileOutputStream.write(offerJsonList.getBytes());
                     fileOutputStream.close();
                 } catch (FileNotFoundException e) {
