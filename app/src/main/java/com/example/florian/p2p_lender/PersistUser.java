@@ -24,7 +24,7 @@ public class PersistUser {
     String filename = "userList.json";
     Gson gson = new Gson();
     JsonReader reader = null;
-    Type OFFER_TYPE = new TypeToken<ArrayList<Offer>>(){}.getType();
+    Type OFFER_TYPE = new TypeToken<ArrayList<User>>(){}.getType();
     Context ctx;
 
     public PersistUser(Context ctx) {
@@ -60,8 +60,6 @@ public class PersistUser {
 
         return userList;
     }
-
-
 
     public void saveUser(Context ctx, User user){
         ArrayList<User> userList;

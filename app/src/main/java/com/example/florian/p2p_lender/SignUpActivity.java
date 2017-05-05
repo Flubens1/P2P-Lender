@@ -27,9 +27,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         passwordInput = (EditText)findViewById(R.id.firstPasswordInput);
         passwordConfirmation = (EditText)findViewById(R.id.secondPasswordInput);
 
-        mailAddress = emailAddress.getText().toString();
-        password = passwordInput.getText().toString();
-
         signUp = (Button) findViewById(R.id.signUpButton);
         signUp.setOnClickListener(this);
 
@@ -47,10 +44,15 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                         passwordInput.getText().toString().length() != 0 &&
                         passwordConfirmation.getText().toString().length() != 0) {
 
+                    mailAddress = emailAddress.getText().toString();
+                    password = passwordInput.getText().toString();
+
                     User user = new User(mailAddress, password);
-                    //Todo create serialized/DAO to save user object
-                    SerializedUser serializedUser = new SerializedUser();
-                    serializedUser.saveObject(user);
+                    Context ctx = this;
+                    ctx.getApplicationContext();
+
+                    PersistUser pUser = new PersistUser(ctx);
+                    pUser.saveUser(ctx, user);
 
                     Intent intent = new Intent(this, MainActivity.class);
                     startActivity(intent);

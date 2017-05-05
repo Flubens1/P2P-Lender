@@ -15,6 +15,9 @@ import java.util.UUID;
  * Created by aldinbradaric on 01/05/17.
  */
 
+/**
+ * For now this class isn't being used. Will most likely be deleted soon
+ */
 public class SerializedUser {
 
     private File data;                  /* this variable contains the path to the stored files */
@@ -68,39 +71,11 @@ public class SerializedUser {
 
     public void saveObject(User entry) {
 
-        /* check whether Object is part of Account */
-        if (!(entry instanceof User)) {
-            throw new IllegalArgumentException("AccountDAO: saveObject: Kein Account!");
-        }
-
-        /* get the current list of entries by using getObjectList */
-        ArrayList<User> objectList = getObjectList();
-        //File file = new File(path);
-        /* if said list is empty, we create a new one here */
-        if (objectList == null) {
-            objectList = new ArrayList<User>();
-        }
-        /* this if only makes sense if the first one didn't apply */
-        if (getObjectByID(entry.getId()) != null) {
-            throw new IllegalArgumentException("User already exists!");
-        }
-        /* entry is being added here */
-        objectList.add(entry);
-
-        /* this section enables us to write data into a file */
         try {
-            /* we access the files */
-            fileOuS = new FileOutputStream(data);
-            objectOuS = new ObjectOutputStream(fileOuS);
-            /* we write the data */
-            objectOuS.writeObject(objectList);
-            /* and we close the files */
-            objectOuS.close();
-            fileOuS.close();
-            System.out.println("saved!");
+            //TODO need to implement saving test code here
 
-        } catch (IOException e) {
-            e.printStackTrace();
+        }   catch (Exception e) {
+            System.out.println(e.getMessage());
         }
 
     }

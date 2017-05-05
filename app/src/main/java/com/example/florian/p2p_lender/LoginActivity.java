@@ -3,6 +3,8 @@ package com.example.florian.p2p_lender;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -30,9 +32,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import static android.Manifest.permission.READ_CONTACTS;
+import static android.R.attr.y;
+import static com.example.florian.p2p_lender.R.id.email;
 
 /**
  * A login screen that offers login via email/password.
@@ -67,7 +72,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         // Set up the login form.
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+        mEmailView = (AutoCompleteTextView) findViewById(email);
         populateAutoComplete();
 
         mPasswordView = (EditText) findViewById(R.id.password);
@@ -192,14 +197,42 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
+        Context ctx = this;
+        PersistUser pUser = new PersistUser(ctx);
+        ArrayList<User> userList;
+        userList = pUser.getUserList();
 
-        return email.contains("@");
+        User temp;
+        Iterator<User> iterator = userList.iterator();
+
+        while (iterator.hasNext()) {
+            temp = iterator.next();
+            if (temp.getMailAddress().equals(email)) {
+                return email.contains("@");
+            }
+        }
+
+        return false;
     }
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
+        Context ctx = this;
+        PersistUser pUser = new PersistUser(ctx);
+        ArrayList<User> userList;
+        userList = pUser.getUserList();
 
-        return password.length() > 4;
+        User temp;
+        Iterator<User> iterator = userList.iterator();
+
+        while (iterator.hasNext()) {
+            temp = iterator.next();
+            if (temp.getPassword().equals(password)) {
+                return password.length() >= 1;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -336,6 +369,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             if (success) {
                 finish();
+
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();

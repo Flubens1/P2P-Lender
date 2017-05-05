@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
 
         if (v == logIn) {
-            Intent intent = new Intent(this, MyPocket.class);
+            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         }
 
