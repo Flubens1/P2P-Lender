@@ -9,11 +9,14 @@ import java.util.UUID;
 public class User {
     private String mailAddress, password;
     private UUID id;
+    private int rating = 0;
 
     public User(String mail, String password) {
-        setMailAddress(mail);
-        setPassword(password);
+        this.mailAddress = mail;
+        this.password = password;
         setId();
+        FakeRating fake = new FakeRating();
+        rating = fake.getFakeRating();
     }
 
 
