@@ -43,11 +43,12 @@ public class NewOffer extends AppCompatActivity{
             public void onClick(View v) {
                 Offer o = new Offer(name.getText().toString(), input.getText().toString());
                 System.out.println("Save button pressed");
+                ctx.getApplicationContext();
                 PersistOffers persistOffers = new PersistOffers(ctx);
 //                Context ctx = null;
-//                ctx.getApplicationContext();
 
-                persistOffers.saveOffer(o);
+
+                persistOffers.saveOffer(ctx, o);
                 System.out.println("Saved probably");
 //                saveFile(filename, input.getText().toString());
                 Intent intent = new Intent(v.getContext(), MyPocket.class);

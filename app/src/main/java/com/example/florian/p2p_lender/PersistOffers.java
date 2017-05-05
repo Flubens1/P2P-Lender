@@ -2,13 +2,9 @@ package com.example.florian.p2p_lender;
 
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.util.JsonReader;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -16,7 +12,11 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-public class PersistOffers extends AppCompatActivity{
+/**
+ * Created by martin on 05/05/17.
+ */
+
+public class PersistOffers{
     String filename = "offers.json";
     Gson gson = new Gson();
     JsonReader reader = null;
@@ -33,8 +33,7 @@ public class PersistOffers extends AppCompatActivity{
 
 
                 try {
-                    File file = new File(filename);
-                    if (file.exists()){
+
                         System.out.println("try to fetch json");
                         FileInputStream fileInputStream = ctx.openFileInput(filename);
                         int size = fileInputStream.available();
@@ -47,7 +46,8 @@ public class PersistOffers extends AppCompatActivity{
                         for (Offer o: offers){
                             System.out.println(o.toString());
                         }
-                    }
+                        return offers;
+
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -59,8 +59,8 @@ public class PersistOffers extends AppCompatActivity{
 
 
 
-            public void saveOffer(Offer offer){
-                ArrayList<Offer> offers = null;
+            public void saveOffer(Context ctx, Offer offer){
+                ArrayList<Offer> offers;
                 offers = getOfferList();
                 if(offers == null){
                     offers = new ArrayList<Offer>();
