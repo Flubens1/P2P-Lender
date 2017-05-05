@@ -3,4 +3,3 @@ ListViews anpassen
 MyProfil anpassen
 Range für random Werte berechnen
 Algo implementieren
-Login mit UserList verknüpfen
