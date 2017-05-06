@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1097600488591",
+    "firebase_url": "https://p2p-lender.firebaseio.com",
+    "project_id": "p2p-lender",
+    "storage_bucket": "p2p-lender.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1097600488591:android:9598f9ace0a268f1",
+        "android_client_info": {
+          "package_name": "com.example.florian.p2p_lender"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1097600488591-95pge11gr2v1h0lu01d999lpg6ibepd0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.florian.p2p_lender",
+            "certificate_hash": "af6ce0f4cc6ee21a4c4d8b3ff8bace7ce173ed9e"
+          }
+        },
+        {
+          "client_id": "1097600488591-e2l13crtg8fq3t1k9vp766mprlf76mrh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyMt9UOb7vjGH34myFS_2XMZcDqicPyQ4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1097600488591-e2l13crtg8fq3t1k9vp766mprlf76mrh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

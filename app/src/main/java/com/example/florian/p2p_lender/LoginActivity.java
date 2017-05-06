@@ -199,46 +199,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
-        Context ctx = this;
-        PersistUser pUser = new PersistUser(ctx);
-        ArrayList<User> userList;
-        userList = pUser.getUserList();
 
-        User temp;
-        Iterator<User> iterator = userList.iterator();
-
-        while (iterator.hasNext()) {
-            temp = iterator.next();
-            if (temp.getMailAddress().equals(email)) {
-                SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-                SharedPreferences.Editor editor = pref.edit();
-                editor.putString("mail", email);
-                editor.commit();
-                return email.contains("@");
-            }
-        }
-
-        return false;
+        return email.contains("@");
     }
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        Context ctx = this;
-        PersistUser pUser = new PersistUser(ctx);
-        ArrayList<User> userList;
-        userList = pUser.getUserList();
 
-        User temp;
-        Iterator<User> iterator = userList.iterator();
-
-        while (iterator.hasNext()) {
-            temp = iterator.next();
-            if (temp.getPassword().equals(password)) {
-                return password.length() >= 1;
-            }
-        }
-
-        return false;
+        return password.length() > 1;
     }
 
     /**
@@ -356,16 +324,31 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 return false;
             }
 
-            for (String credential : DUMMY_CREDENTIALS) {
+            /*for (String credential : DUMMY_CREDENTIALS) {
                 String[] pieces = credential.split(":");
                 if (pieces[0].equals(mEmail)) {
                     // Account exists, return true if the password matches.
                     return pieces[1].equals(mPassword);
                 }
+            }*/
+
+            Context ctx = LoginActivity.this;
+            PersistUser pUser = new PersistUser(ctx);
+            ArrayList<User> userList;
+            userList = pUser.getUserList();
+
+            User temp;
+            Iterator<User> iterator = userList.iterator();
+
+            while (iterator.hasNext()) {
+                temp = iterator.next();
+                if (temp.getPassword().equals(mPassword) && temp.getMailAddress().equals(mEmail)) {
+                    return true;
+                }
             }
 
             // TODO: register the new account here.
-            return true;
+            return false;
         }
 
         @Override
@@ -375,6 +358,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             if (success) {
                 finish();
+
+                Intent intent = new Intent(LoginActivity.this, MyPocket.class);
+                startActivity(intent);
 
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
