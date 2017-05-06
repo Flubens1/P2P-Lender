@@ -10,6 +10,7 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
 
     Button newOffer;
     Button listViewButton;
+    Button myProfileButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,8 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
         newOffer.setOnClickListener(this);
         listViewButton = (Button)findViewById(R.id.listViewButton);
         listViewButton.setOnClickListener(this);
+        myProfileButton = (Button)findViewById(R.id.buttonProfile);
+        myProfileButton.setOnClickListener(this);
 
 
 
@@ -33,6 +36,10 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
         }
         if (v==listViewButton) {
             Intent intent = new Intent(this, LoanList.class);
+            startActivity(intent);
+        }
+        if (v==myProfileButton) {
+            Intent intent = new Intent(this, MyProfile.class);
             startActivity(intent);
         }
     }

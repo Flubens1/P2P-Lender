@@ -1,5 +1,6 @@
 MyPocket anpassen
 ListViews anpassen
+MyInvestments, MyLoans, und LoanList jeweils CustomAdapter und CustomRow
 MyProfil anpassen
 Range für random Werte berechnen
 Algo implementieren

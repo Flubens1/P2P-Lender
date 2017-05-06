@@ -25,34 +25,36 @@
     <Button
         android:id="@+id/investmentsButton"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="324dp"
-        android:layout_height="124dp"
+        android:layout_width="173dp"
+        android:layout_height="107dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:background="@android:drawable/ic_input_add"
         android:text="Investments"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/myPocketName"
-        app:layout_constraintVertical_bias="0.149" />
+        app:layout_constraintVertical_bias="0.375"
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <Button
         android:id="@+id/loansButton"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="324dp"
-        android:layout_height="124dp"
+        android:layout_width="173dp"
+        android:layout_height="107dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginRight="7dp"
         android:layout_marginTop="8dp"
+        android:background="@android:drawable/presence_busy"
         android:text="Loans"
+        android:textColor="@android:color/holo_red_dark"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/investmentsButton"
-        app:layout_constraintVertical_bias="0.159" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.445" />
 
     <TextView
         android:id="@+id/newOfferText"
@@ -73,11 +75,12 @@
         android:id="@+id/offerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="77dp"
         android:text="new Offer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.501" />
 
     <Button
         android:id="@+id/listViewButton"
@@ -92,5 +95,25 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/myPocketName"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.225" />
+
+    <Button
+        android:id="@+id/buttonProfile"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="105dp"
+        android:layout_height="63dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:drawable/btn_star_big_on"
+        android:text="My Profile"
+        android:textColor="@android:color/background_dark"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/myPocketName"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 </android.support.constraint.ConstraintLayout>

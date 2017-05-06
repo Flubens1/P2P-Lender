@@ -11,14 +11,16 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
  * Created by florian on 26.04.17.
  */
 
-public class CustomAdapter extends ArrayAdapter<String> {
+public class CustomAdapter extends ArrayAdapter<Offer> {
 
-    public CustomAdapter( Context context, String[] user) {
-        super(context, R.layout.custom_row, user);
+    public CustomAdapter(Context context, ArrayList<Offer> offers) {
+        super(context, R.layout.custom_row, offers);
     }
 
     @NonNull
@@ -28,13 +30,16 @@ public class CustomAdapter extends ArrayAdapter<String> {
         LayoutInflater layoutInflater = LayoutInflater.from(getContext());
         View customView = layoutInflater.inflate(R.layout.custom_row, parent, false);
 
-        String item = getItem(position);
-        TextView text = (TextView)customView.findViewById(R.id.customRowText);
+        Offer item = getItem(position);
+        TextView offerTextBeschreibung = (TextView)customView.findViewById(R.id.offerTextBeschreibung);
+        TextView offerTextName = (TextView)customView.findViewById(R.id.offerNameText);
         ImageView image = (ImageView)customView.findViewById(R.id.customRowImage);
         TextView bewertung = (TextView)customView.findViewById(R.id.bewertung);
 
+
+        offerTextBeschreibung.setText(item.getBeschreibung());
         bewertung.setText("Bewertung");
-        text.setText(item);
+        offerTextName.setText(item.getOfferName());
         image.setImageResource(R.drawable.p2p_tasten);
         return customView;
 

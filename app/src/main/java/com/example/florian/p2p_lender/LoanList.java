@@ -1,5 +1,6 @@
 package com.example.florian.p2p_lender;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -9,10 +10,12 @@ import android.widget.ListView;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class LoanList extends AppCompatActivity {
 
-String filename = "";
+    String filename = "";
+    Context ctx = this;
 
 
     @Override
@@ -26,8 +29,22 @@ String filename = "";
 
         }
 
-        String[] user = {filename + readFile(filename), "Aldins neuer PC, muss nicht sehr gut sein, aber teuer ist wichtig", "Flo ist momentan relativ zufrieden, aber Geld ist iwie immer nötig", "Candy", "Andy", "Minty"};
-        ListAdapter adapter = new CustomAdapter(this, user);
+
+        PersistOffers pOffers = new PersistOffers(ctx);
+        ArrayList<Offer> offers = pOffers.getOfferList();
+        /*int size = offers.size();
+        String[] offerNames = new String[size];
+        String[] offerBeschreibung = new String[size];*/
+
+        /*for (int i = 0; i < size; i++) {
+            offerNames[i] = offers.get(i).getOfferName();
+            offerBeschreibung[i] = offers.get(i).getBeschreibung();
+        }*/
+
+
+        //String[] user = {filename + readFile(filename), "Aldins neuer PC, muss nicht sehr gut sein, aber teuer ist wichtig", "Flo ist momentan relativ zufrieden, aber Geld ist iwie immer nötig", "Candy", "Andy", "Minty"};
+
+        ListAdapter adapter = new CustomAdapter(this, offers);
         ListView listView = (ListView)findViewById(R.id.loanListView);
         listView.setAdapter(adapter);
 

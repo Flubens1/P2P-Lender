@@ -358,6 +358,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             if (success) {
                 finish();
+                Intent myIntent = new Intent(LoginActivity.this,MyPocket.class);
+                LoginActivity.this.startActivity(myIntent);
 
                 Intent intent = new Intent(LoginActivity.this, MyPocket.class);
                 startActivity(intent);
