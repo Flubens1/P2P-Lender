@@ -1,9 +1,9 @@
 package com.example.florian.p2p_lender;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
+import android.content.Intent;
+import android.os.Bundle;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -21,8 +21,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         signUp = (Button)findViewById(R.id.signUpButton);
         signUp.setOnClickListener(this);
 
-
-
     }
 
     @Override
@@ -37,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(this, SignUpActivity.class);
             startActivity(intent);
         }
-
     }
 }
+
+
+

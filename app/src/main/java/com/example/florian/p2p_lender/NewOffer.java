@@ -31,7 +31,7 @@ public class NewOffer extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_offer);
 
-        name = (EditText)findViewById((R.id.editTextName));
+        name = (EditText)findViewById(R.id.editTextName);
         input = (EditText)findViewById(R.id.inputText);
 
         final String filename = name.getText().toString() + ".txt";
