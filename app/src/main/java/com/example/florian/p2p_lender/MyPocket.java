@@ -93,9 +93,6 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
                     startActivity(intent);
 
                 }
-
-
-
             }
         }
 

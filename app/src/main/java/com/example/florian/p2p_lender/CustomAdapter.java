@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,8 +20,12 @@ import java.util.ArrayList;
 
 public class CustomAdapter extends ArrayAdapter<Offer> {
 
-    public CustomAdapter(Context context, ArrayList<Offer> offers) {
+    String investorMail = "";
+
+
+    public CustomAdapter(Context context, ArrayList<Offer> offers, String investorMail) {
         super(context, R.layout.custom_row, offers);
+        this.investorMail = investorMail;
     }
 
     @NonNull
@@ -30,11 +35,20 @@ public class CustomAdapter extends ArrayAdapter<Offer> {
         LayoutInflater layoutInflater = LayoutInflater.from(getContext());
         View customView = layoutInflater.inflate(R.layout.custom_row, parent, false);
 
-        Offer item = getItem(position);
+        final Offer item = getItem(position);
         TextView offerTextBeschreibung = (TextView)customView.findViewById(R.id.offerTextBeschreibung);
         TextView offerTextName = (TextView)customView.findViewById(R.id.offerNameText);
         ImageView image = (ImageView)customView.findViewById(R.id.customRowImage);
         TextView bewertung = (TextView)customView.findViewById(R.id.bewertung);
+
+
+        Button investButton = (Button)customView.findViewById(R.id.investButton);
+        investButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                item.setInvestor(investorMail);
+            }
+        });
 
 
         offerTextBeschreibung.setText(item.getBeschreibung());

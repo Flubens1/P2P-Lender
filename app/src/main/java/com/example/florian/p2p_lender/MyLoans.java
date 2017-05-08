@@ -31,7 +31,7 @@ public class MyLoans extends AppCompatActivity {
             }
         }
 
-        ListAdapter adapter = new CustomAdapter(this, offers);
+        ListAdapter adapter = new CustomAdapter(this, offers, mail);
         ListView listView = (ListView)findViewById(R.id.myLoansListView);
         listView.setAdapter(adapter);
 

@@ -1,6 +1,8 @@
 package com.example.florian.p2p_lender;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -32,7 +34,10 @@ public class LoanList extends AppCompatActivity {
         PersistOffers pOffers = new PersistOffers(ctx);
         ArrayList<Offer> offers = pOffers.getOfferList();
 
-        ListAdapter adapter = new CustomAdapter(this, offers);
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        String mail = pref.getString("mail", "");
+
+        ListAdapter adapter = new CustomAdapter(this, offers, mail);
         ListView listView = (ListView)findViewById(R.id.loanListView);
         listView.setAdapter(adapter);
 
