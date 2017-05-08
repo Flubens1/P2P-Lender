@@ -2,6 +2,8 @@ package com.example.florian.p2p_lender;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +25,8 @@ public class NewOffer extends AppCompatActivity{
     EditText name;
     TextView output;
 
+    String mail = "";
+
     Button goToLoanList;
     Context ctx = this;
 
@@ -34,14 +38,20 @@ public class NewOffer extends AppCompatActivity{
         name = (EditText)findViewById(R.id.editTextName);
         input = (EditText)findViewById(R.id.inputText);
 
-        final String filename = name.getText().toString() + ".txt";
+        //final String filename = name.getText().toString() + ".txt";
+
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        mail = pref.getString("mail", "");
+
+        System.out.println("mail = " + mail);
 
 
         saveButton = (Button)findViewById(R.id.save);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Offer o = new Offer(name.getText().toString(), input.getText().toString());
+
+                Offer o = new Offer(name.getText().toString(), input.getText().toString(), mail);
                 System.out.println("Save button pressed");
                 ctx.getApplicationContext();
                 PersistOffers persistOffers = new PersistOffers(ctx);

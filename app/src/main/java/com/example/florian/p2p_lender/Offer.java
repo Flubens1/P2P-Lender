@@ -12,9 +12,11 @@ public class Offer {
     private String investor;
 
 
-    public Offer(String offerName, String beschreibung) {
+    public Offer(String offerName, String beschreibung, String userMail) {
         this.offerName = offerName;
         this.beschreibung = beschreibung;
+        lender = userMail;
+
     }
 
     public String getLender() {
