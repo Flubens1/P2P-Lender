@@ -19,7 +19,7 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
     Button myProfileButton;
     Button myLoansButton;
     Context ctx = this;
-    ArrayList<Offer> offers;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +72,7 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
 
             } else {
 
-                offers = pOffers.getOfferList();
+                ArrayList<Offer> offers = pOffers.getOfferList();
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
                 String name = pref.getString("mail", "");
 
