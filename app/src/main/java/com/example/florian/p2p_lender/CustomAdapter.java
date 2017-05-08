@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class CustomAdapter extends ArrayAdapter<Offer> {
 
     String investorMail = "";
-
+    Offer item;
 
     public CustomAdapter(Context context, ArrayList<Offer> offers, String investorMail) {
         super(context, R.layout.custom_row, offers);
@@ -30,23 +30,29 @@ public class CustomAdapter extends ArrayAdapter<Offer> {
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         LayoutInflater layoutInflater = LayoutInflater.from(getContext());
         View customView = layoutInflater.inflate(R.layout.custom_row, parent, false);
 
-        final Offer item = getItem(position);
+        item = getItem(position);
         TextView offerTextBeschreibung = (TextView)customView.findViewById(R.id.offerTextBeschreibung);
         TextView offerTextName = (TextView)customView.findViewById(R.id.offerNameText);
         ImageView image = (ImageView)customView.findViewById(R.id.customRowImage);
         TextView bewertung = (TextView)customView.findViewById(R.id.bewertung);
 
+        System.out.println("bin in der view");
 
         Button investButton = (Button)customView.findViewById(R.id.investButton);
         investButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                item.setInvestor(investorMail);
+                Offer offer = getItem(position);
+                offer.setInvestor(investorMail);
+                System.out.println("in der onclick");
+                System.out.println(investorMail);
+                System.out.println("check: " + offer.getInvestor());
+                //item.setInvestor(investorMail);
             }
         });
 

@@ -45,8 +45,8 @@ public class MyInvestments extends AppCompatActivity {
 
 
         //use only after final list has been created
-        ListAdapter adapter = new CustomAdapter(this, offerList);
+        //ListAdapter adapter = new CustomAdapter(this, offerList);
         ListView listView = (ListView)findViewById(R.id.investmentListView);
-        listView.setAdapter(adapter);
+        //listView.setAdapter(adapter);
     }
 }

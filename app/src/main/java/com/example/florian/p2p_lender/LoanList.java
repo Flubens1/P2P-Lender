@@ -34,6 +34,10 @@ public class LoanList extends AppCompatActivity {
         PersistOffers pOffers = new PersistOffers(ctx);
         ArrayList<Offer> offers = pOffers.getOfferList();
 
+        for (Offer each : offers) {
+            System.out.println("investor: " + each.getInvestor());
+        }
+
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         String mail = pref.getString("mail", "");
 
