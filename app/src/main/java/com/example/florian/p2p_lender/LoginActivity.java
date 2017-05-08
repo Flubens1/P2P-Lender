@@ -36,6 +36,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.UUID;
 
 import static android.Manifest.permission.READ_CONTACTS;
 import static android.R.attr.y;
@@ -343,6 +344,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             while (iterator.hasNext()) {
                 temp = iterator.next();
                 if (temp.getPassword().equals(mPassword) && temp.getMailAddress().equals(mEmail)) {
+
+                    SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
+                    SharedPreferences.Editor editor = pref.edit();
+                    editor.putString("UUID", temp.getId().toString());
+                    editor.putString("userMailAddress", temp.getMailAddress());
+
                     return true;
                 }
             }
@@ -361,8 +368,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 Intent myIntent = new Intent(LoginActivity.this,MyPocket.class);
                 LoginActivity.this.startActivity(myIntent);
 
-                Intent intent = new Intent(LoginActivity.this, MyPocket.class);
-                startActivity(intent);
 
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));

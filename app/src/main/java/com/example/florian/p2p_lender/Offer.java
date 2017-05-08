@@ -13,9 +13,9 @@ public class Offer {
 
 
     public Offer(String offerName, String beschreibung, String userMail) {
-        this.offerName = offerName;
-        this.beschreibung = beschreibung;
-        lender = userMail;
+        setOfferName(offerName);
+        setBeschreibung(beschreibung);
+        setLender(userMail);
 
     }
 

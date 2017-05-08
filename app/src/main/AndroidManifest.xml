@@ -32,9 +32,13 @@
         <activity android:name=".MyLoans" />
         <activity android:name=".LoanList" />
         <activity android:name=".MyProfile" />
-        <activity android:name=".PersistOffers"/>
+        <activity android:name=".PersistOffers" />
         <activity android:name=".DetailedOffer" />
-        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".SignUpActivity" />
+        <activity
+            android:name=".MyFinances"
+            android:label="@string/title_activity_my_finances"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

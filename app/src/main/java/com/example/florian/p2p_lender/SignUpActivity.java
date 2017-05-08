@@ -69,7 +69,12 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 else {
                     AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
 
-                    if (!emailAddress.getText().toString().matches(mailPattern)) {
+                    if (userName.getText().toString().length() == 0) {
+                        alertDialog.setMessage("Username field must not be empty!");
+                        alertDialog.show();
+                    }
+
+                    else if (!emailAddress.getText().toString().matches(mailPattern)) {
                         alertDialog.setMessage("Email address does not conform to standard");
                         alertDialog.show();
                     }

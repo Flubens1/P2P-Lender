@@ -13,12 +13,16 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import static com.example.florian.p2p_lender.R.id.investmentsButton;
+import static com.example.florian.p2p_lender.R.id.start;
+
 public class MyPocket extends AppCompatActivity implements View.OnClickListener{
 
     Button newOffer;
     Button listViewButton;
     Button myProfileButton;
     Button myLoansButton;
+    Button investmentsButton;
     Context ctx = this;
 
 
@@ -35,7 +39,8 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
         myProfileButton.setOnClickListener(this);
         myLoansButton = (Button)findViewById(R.id.loansButton);
         myLoansButton.setOnClickListener(this);
-
+        investmentsButton = (Button)findViewById(R.id.investmentsButton);
+        investmentsButton.setOnClickListener(this);
 
 
     }
@@ -59,6 +64,11 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
                 Intent intent = new Intent(this, LoanList.class);
                 startActivity(intent);
             }
+        }
+
+        if (v==investmentsButton) {
+            Intent intent = new Intent(this, MyInvestments.class);
+            startActivity(intent);
         }
 
         if (v==myLoansButton) {

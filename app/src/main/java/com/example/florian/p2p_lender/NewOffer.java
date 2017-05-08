@@ -52,6 +52,7 @@ public class NewOffer extends AppCompatActivity{
             public void onClick(View v) {
 
                 Offer o = new Offer(name.getText().toString(), input.getText().toString(), mail);
+                o.setLender(mail);
                 System.out.println("Save button pressed");
                 ctx.getApplicationContext();
                 PersistOffers persistOffers = new PersistOffers(ctx);
