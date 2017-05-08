@@ -8,6 +8,8 @@ public class Offer {
 
     private String offerName;
     private String beschreibung;
+    private String lender;
+    private String investor;
 
 
     public Offer(String offerName, String beschreibung) {
@@ -15,6 +17,21 @@ public class Offer {
         this.beschreibung = beschreibung;
     }
 
+    public String getLender() {
+        return lender;
+    }
+
+    public void setLender(String lender) {
+        this.lender = lender;
+    }
+
+    public String getInvestor() {
+        return investor;
+    }
+
+    public void setInvestor(String investor) {
+        this.investor = investor;
+    }
 
     public String getOfferName() {
         return offerName;
