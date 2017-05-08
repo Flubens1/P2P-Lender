@@ -19,7 +19,6 @@ public class MyLoans extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_loans);
 
-
         PersistOffers pOffers = new PersistOffers(ctx);
         ArrayList<Offer> offers = pOffers.getOfferList();
 
@@ -32,12 +31,9 @@ public class MyLoans extends AppCompatActivity {
             }
         }
 
-
-
         ListAdapter adapter = new CustomAdapter(this, offers);
         ListView listView = (ListView)findViewById(R.id.myLoansListView);
         listView.setAdapter(adapter);
-
 
     }
 }

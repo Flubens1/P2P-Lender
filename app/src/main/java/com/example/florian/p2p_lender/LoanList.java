@@ -29,23 +29,8 @@ public class LoanList extends AppCompatActivity {
 
         }*/
 
-
         PersistOffers pOffers = new PersistOffers(ctx);
         ArrayList<Offer> offers = pOffers.getOfferList();
-
-
-
-        /*int size = offers.size();
-        String[] offerNames = new String[size];
-        String[] offerBeschreibung = new String[size];*/
-
-        /*for (int i = 0; i < size; i++) {
-            offerNames[i] = offers.get(i).getOfferName();
-            offerBeschreibung[i] = offers.get(i).getBeschreibung();
-        }*/
-
-
-        //String[] user = {filename + readFile(filename), "Aldins neuer PC, muss nicht sehr gut sein, aber teuer ist wichtig", "Flo ist momentan relativ zufrieden, aber Geld ist iwie immer nötig", "Candy", "Andy", "Minty"};
 
         ListAdapter adapter = new CustomAdapter(this, offers);
         ListView listView = (ListView)findViewById(R.id.loanListView);
