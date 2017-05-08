@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class MyPocket extends AppCompatActivity implements View.OnClickListener{
 
@@ -81,18 +82,23 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
 
                 for (int i = 0; i < offers.size(); i++) {
 
+                    if (offers.size() == 1) offers.remove(offers.get(offers.size()-1));
+
                     if (!offers.get(i).getLender().equals(name)) {
 
                         System.out.println("removed offer: " + offers.get(i).getLender());
 
-                        //offers.remove(offers.get(i));
+                        offers.remove(offers.get(i));
 
                     }
+
+
+
                 }
 
-                for ( Offer each : offers) {
+               /* for ( Offer each : offers) {
                     System.out.println("lender = " + each.getLender());
-                    /*if (!each.getLender().equals(name)) {
+                    if (!each.getLender().equals(name)) {
                         if (offers.isEmpty()) {
 
                             CharSequence text = "You don't have any Loans";
@@ -100,9 +106,25 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
                             Toast toast = Toast.makeText(ctx, text, duration);
                             toast.show();
                         } else offers.remove(each);
-                    }*/
+                    }
+
+                }*/
+
+
+               /* Iterator<Offer> iterator = offers.iterator();
+
+                while (iterator.hasNext()) {
+
+                    Offer offer = iterator.next();
+
+                    if (!offer.getLender().equals(name)) {
+                        System.out.println("treffer");
+                        offers.remove(offer);
+                    }
 
                 }
+
+                System.out.println(offers.size());*/
 
 
 
