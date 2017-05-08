@@ -75,75 +75,25 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
 
                 ArrayList<Offer> offers = pOffers.getOfferList();
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-                String name = pref.getString("mail", "");
+                String mail = pref.getString("mail", "");
 
-                System.out.println("offerslenght = " + offers.size());
-
-
-                for (int i = 0; i < offers.size(); i++) {
-
-                    if (offers.size() == 1) offers.remove(offers.get(offers.size()-1));
-
-                    if (!offers.get(i).getLender().equals(name)) {
-
-                        System.out.println("removed offer: " + offers.get(i).getLender());
-
+                for (int i = offers.size()-1; i >= 0; i--) {
+                    if (!offers.get(i).getLender().equals(mail)) {
                         offers.remove(offers.get(i));
-
                     }
-
-
-
                 }
 
-               /* for ( Offer each : offers) {
-                    System.out.println("lender = " + each.getLender());
-                    if (!each.getLender().equals(name)) {
-                        if (offers.isEmpty()) {
-
-                            CharSequence text = "You don't have any Loans";
-                            int duration = Toast.LENGTH_SHORT;
-                            Toast toast = Toast.makeText(ctx, text, duration);
-                            toast.show();
-                        } else offers.remove(each);
-                    }
-
-                }*/
-
-
-               /* Iterator<Offer> iterator = offers.iterator();
-
-                while (iterator.hasNext()) {
-
-                    Offer offer = iterator.next();
-
-                    if (!offer.getLender().equals(name)) {
-                        System.out.println("treffer");
-                        offers.remove(offer);
-                    }
-
-                }
-
-                System.out.println(offers.size());*/
-
-
-
-                /*if (offers.isEmpty()) {
-
-                    CharSequence text = "You don't have any Loans";
+                if (offers.size() == 0) {
+                    CharSequence text = "You have no Loans";
                     int duration = Toast.LENGTH_SHORT;
                     Toast toast = Toast.makeText(ctx, text, duration);
                     toast.show();
-
                 } else {
-
                     Intent intent = new Intent(this, MyLoans.class);
                     startActivity(intent);
-                }*/
 
+                }
 
-               /* Intent intent = new Intent(this, MyLoans.class);
-                startActivity(intent);*/
 
 
             }

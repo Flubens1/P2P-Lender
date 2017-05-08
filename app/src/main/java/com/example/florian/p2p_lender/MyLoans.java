@@ -23,20 +23,15 @@ public class MyLoans extends AppCompatActivity {
         PersistOffers pOffers = new PersistOffers(ctx);
         ArrayList<Offer> offers = pOffers.getOfferList();
 
-        for ( Offer each : offers) {
-            System.out.println("lender = " + each.getLender());
-
-        }
-
-
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-        String name = pref.getString("mail", "");
+        String mail = pref.getString("mail", "");
 
-        for (Offer each : offers) {
-            if (!each.getLender().equals(name)) {
-                offers.remove(each);
+        for (int i = offers.size()-1; i >= 0; i--) {
+            if (!offers.get(i).getLender().equals(mail)) {
+                offers.remove(offers.get(i));
             }
         }
+
 
 
         ListAdapter adapter = new CustomAdapter(this, offers);
