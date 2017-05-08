@@ -26,7 +26,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textMultiLine"
         android:hint="Describe your offer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -44,8 +44,8 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:text="SAVE"
+        android:textColor="@android:color/holo_green_dark"
         android:textStyle="bold"
-        android:background="@color/SaveButtonGreen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -83,5 +83,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newOfferText" />
+
+
 
 </android.support.constraint.ConstraintLayout>
