@@ -19,6 +19,7 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
     Button myProfileButton;
     Button myLoansButton;
     Context ctx = this;
+    ArrayList<Offer> offers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,22 +72,47 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
 
             } else {
 
-                /*ArrayList<Offer> offers = pOffers.getOfferList();
+                offers = pOffers.getOfferList();
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
                 String name = pref.getString("mail", "");
 
-                for (Offer each : offers) {
-                    if (!each.getLender().equals(name)) {
-                        offers.remove(each);
+                System.out.println("offerslenght = " + offers.size());
+
+
+                for (int i = 0; i < offers.size(); i++) {
+
+                    if (!offers.get(i).getLender().equals(name)) {
+
+                        System.out.println("removed offer: " + offers.get(i).getLender());
+
+                        //offers.remove(offers.get(i));
+
                     }
                 }
 
-                if (offers == null) {
+                for ( Offer each : offers) {
+                    System.out.println("lender = " + each.getLender());
+                    /*if (!each.getLender().equals(name)) {
+                        if (offers.isEmpty()) {
+
+                            CharSequence text = "You don't have any Loans";
+                            int duration = Toast.LENGTH_SHORT;
+                            Toast toast = Toast.makeText(ctx, text, duration);
+                            toast.show();
+                        } else offers.remove(each);
+                    }*/
+
+                }
+
+
+
+                /*if (offers.isEmpty()) {
 
                     CharSequence text = "You don't have any Loans";
                     int duration = Toast.LENGTH_SHORT;
                     Toast toast = Toast.makeText(ctx, text, duration);
                     toast.show();
+
                 } else {
 
                     Intent intent = new Intent(this, MyLoans.class);
@@ -94,8 +120,9 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
                 }*/
 
 
-                Intent intent = new Intent(this, MyLoans.class);
-                startActivity(intent);
+               /* Intent intent = new Intent(this, MyLoans.class);
+                startActivity(intent);*/
+
 
             }
         }

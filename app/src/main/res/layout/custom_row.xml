@@ -58,8 +58,8 @@
 
     <TextView
         android:id="@+id/offerTextBeschreibung"
-        android:layout_width="277dp"
-        android:layout_height="61dp"
+        android:layout_width="269dp"
+        android:layout_height="57dp"
         android:text="TextView"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -67,7 +67,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintVertical_bias="0.0"
         app:layout_constraintTop_toBottomOf="@+id/bewertung"
         app:layout_constraintLeft_toRightOf="@+id/customRowImage" />

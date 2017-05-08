@@ -29,14 +29,14 @@ public class MyLoans extends AppCompatActivity {
         }
 
 
-        /*SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         String name = pref.getString("mail", "");
 
         for (Offer each : offers) {
             if (!each.getLender().equals(name)) {
                 offers.remove(each);
             }
-        }*/
+        }
 
 
         ListAdapter adapter = new CustomAdapter(this, offers);
