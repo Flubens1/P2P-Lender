@@ -16,12 +16,17 @@ public class MyProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_profile);
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-        String name = pref.getString("mail", "");
+        String mail = pref.getString("mail", "");
+        String name = pref.getString("userName", "");
+
         System.out.println("MyProfile:");
         System.out.println(name);
 
         TextView email = (TextView)findViewById(R.id.emailView);
-        email.setText(name);
+        email.setText(mail);
+
+        TextView nameTextView = (TextView)findViewById(R.id.userNameTextView);
+        nameTextView.setText(name);
 
 
 

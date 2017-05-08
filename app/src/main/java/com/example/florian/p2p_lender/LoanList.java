@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class LoanList extends AppCompatActivity {
 
-    String filename = "";
+    //String filename = "";
     Context ctx = this;
 
 
@@ -23,15 +23,18 @@ public class LoanList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loan_list);
 
-        if (getIntent().getExtras() != null) {
+       /* if (getIntent().getExtras() != null) {
 
             filename = getIntent().getStringExtra("filename");
 
-        }
+        }*/
 
 
         PersistOffers pOffers = new PersistOffers(ctx);
         ArrayList<Offer> offers = pOffers.getOfferList();
+
+
+
         /*int size = offers.size();
         String[] offerNames = new String[size];
         String[] offerBeschreibung = new String[size];*/
@@ -51,7 +54,7 @@ public class LoanList extends AppCompatActivity {
     }
 
 
-    public String readFile(String file) {
+   /* public String readFile(String file) {
 
         String text = "";
 
@@ -72,5 +75,5 @@ public class LoanList extends AppCompatActivity {
 
         return text;
     }
-
+*/
 }

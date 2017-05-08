@@ -15,10 +15,10 @@ import android.widget.EditText;
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button signUp;
-    EditText emailAddress, passwordInput, passwordConfirmation;
+    EditText emailAddress, passwordInput, passwordConfirmation, userName;
 
     String mailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-    String mailAddress, password;
+    String mailAddress, password ,username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         emailAddress = (EditText)findViewById(R.id.mailInput);
         passwordInput = (EditText)findViewById(R.id.firstPasswordInput);
         passwordConfirmation = (EditText)findViewById(R.id.secondPasswordInput);
+        userName = (EditText)findViewById(R.id.signUpName);
 
         signUp = (Button) findViewById(R.id.signUpButton);
         signUp.setOnClickListener(this);
@@ -48,8 +49,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
                     mailAddress = emailAddress.getText().toString();
                     password = passwordInput.getText().toString();
+                    username = userName.getText().toString();
 
-                    User user = new User(mailAddress, password);
+                    User user = new User(mailAddress, password, username);
                     Context ctx = this;
                     ctx.getApplicationContext();
 
@@ -57,6 +59,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                     pUser.saveUser(ctx, user);
                     SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
                     SharedPreferences.Editor editor = pref.edit();
+                    editor.putString("userName", username);
                     editor.putString("mail", mailAddress);
                     editor.commit();
 

@@ -7,11 +7,14 @@ import java.util.UUID;
  */
 
 public class User {
+
+    private String userName;
     private String mailAddress, password;
     private UUID id;
     private int rating = 0;
 
-    public User(String mail, String password) {
+    public User(String mail, String password, String userName) {
+        this.userName = userName;
         this.mailAddress = mail;
         this.password = password;
         setId();
@@ -19,6 +22,26 @@ public class User {
         rating = fake.getFakeRating();
     }
 
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
 
     public String getMailAddress() {
         return mailAddress;
