@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
@@ -91,6 +92,25 @@ public class PersistOffers{
 
 
 
+            }
+
+
+            public void saveOfferList(Context ctx, ArrayList<Offer> offerList) {
+                ArrayList<Offer> offers;
+                offers = offerList;
+
+                FileOutputStream fileOutputStream;
+                String offerJsonList = gson.toJson(offers);
+
+                try {
+                    fileOutputStream = ctx.openFileOutput(filename, Context.MODE_PRIVATE);
+                    fileOutputStream.write(offerJsonList.getBytes());
+                    fileOutputStream.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
 

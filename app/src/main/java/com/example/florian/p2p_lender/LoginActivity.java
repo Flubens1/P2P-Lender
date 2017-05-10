@@ -336,6 +336,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             Context ctx = LoginActivity.this;
             PersistUser pUser = new PersistUser(ctx);
             ArrayList<User> userList;
+            //TODO: make sure exception is handled when user attempts to login without any accounts being in the database, else app crashes
             userList = pUser.getUserList();
 
             User temp;

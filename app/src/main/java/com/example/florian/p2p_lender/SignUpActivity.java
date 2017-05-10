@@ -44,8 +44,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
                 if (passwordConfirmation.getText().toString().equals(passwordInput.getText().toString()) &&
                         emailAddress.getText().toString().matches(mailPattern) &&
-                        passwordInput.getText().toString().length() != 0 &&
-                        passwordConfirmation.getText().toString().length() != 0) {
+                        passwordInput.getText().toString().length() > 1 &&
+                        passwordConfirmation.getText().toString().length() > 1) {
 
                     mailAddress = emailAddress.getText().toString();
                     password = passwordInput.getText().toString();
@@ -76,6 +76,11 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
                     else if (!emailAddress.getText().toString().matches(mailPattern)) {
                         alertDialog.setMessage("Email address does not conform to standard");
+                        alertDialog.show();
+                    }
+
+                    else if (passwordInput.getText().toString().length() <= 1) {
+                        alertDialog.setMessage("Password needs to be at least 2 signs long!");
                         alertDialog.show();
                     }
 

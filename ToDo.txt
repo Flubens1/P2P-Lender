@@ -4,5 +4,4 @@ MyInvestments, MyLoans, und LoanList jeweils CustomAdapter und CustomRow
 MyProfil anpassen => User ergänzen (Rating + Date of Rating)
 Range für random Werte berechnen
 Algo implementieren
-Passwort auf länge kontrollieren bei erstellen eines neuen user => Konnte einen User erstellen und mich dann nicht einloggen weil das pw zu kurz war
 

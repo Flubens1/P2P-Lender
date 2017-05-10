@@ -40,7 +40,7 @@ public class NewOffer extends AppCompatActivity{
 
         //final String filename = name.getText().toString() + ".txt";
 
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         mail = pref.getString("mail", "");
 
         System.out.println("mail = " + mail);
@@ -53,6 +53,11 @@ public class NewOffer extends AppCompatActivity{
 
                 Offer o = new Offer(name.getText().toString(), input.getText().toString(), mail);
                 o.setLender(mail);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putString("offerTitle", name.getText().toString());
+                editor.putString("offerDescription", input.getText().toString());
+                editor.apply();
+
                 System.out.println("Save button pressed");
                 ctx.getApplicationContext();
                 PersistOffers persistOffers = new PersistOffers(ctx);

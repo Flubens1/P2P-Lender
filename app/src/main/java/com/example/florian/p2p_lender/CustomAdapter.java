@@ -1,6 +1,7 @@
 package com.example.florian.p2p_lender;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,6 +15,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import static android.os.Build.VERSION_CODES.M;
+
 /**
  * Created by florian on 26.04.17.
  */
@@ -22,10 +25,12 @@ public class CustomAdapter extends ArrayAdapter<Offer> {
 
     String investorMail = "";
     Offer item;
+    Context mContext;
 
     public CustomAdapter(Context context, ArrayList<Offer> offers, String investorMail) {
         super(context, R.layout.custom_row, offers);
         this.investorMail = investorMail;
+        this.mContext = context;
     }
 
     @NonNull
@@ -53,6 +58,10 @@ public class CustomAdapter extends ArrayAdapter<Offer> {
                 System.out.println(investorMail);
                 System.out.println("check: " + offer.getInvestor());
                 //item.setInvestor(investorMail);
+                Intent mIntent = new Intent(mContext, DetailedOffer.class);
+                System.out.println("right before starting DetailedOffer activity");
+                mContext.startActivity(mIntent);
+
             }
         });
 

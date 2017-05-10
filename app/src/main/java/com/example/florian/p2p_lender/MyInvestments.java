@@ -21,8 +21,8 @@ public class MyInvestments extends AppCompatActivity {
         setContentView(R.layout.activity_my_investments);
         Context ctx = MyInvestments.this;
 
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-        String mailAddressInvestor = pref.getString("userMailAddress", null);
+        final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        String mailAddressInvestor = pref.getString("userMailAddress", "");
 
         //fetch list from serialized class
         PersistOffers pOffers = new PersistOffers(ctx);
