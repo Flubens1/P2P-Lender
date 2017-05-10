@@ -27,8 +27,13 @@ public class MyProfile extends AppCompatActivity {
 
         TextView nameTextView = (TextView)findViewById(R.id.userNameTextView);
         nameTextView.setText(name);
+        FakeRating rate = new FakeRating();
+        TextView ratingView = (TextView) findViewById(R.id.ratingView);
+        ratingView.setText(rate.getRating());
 
 
 
     }
+
+
 }
