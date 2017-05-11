@@ -66,6 +66,14 @@ public class CustomAdapter extends ArrayAdapter<Offer> {
         });
 
 
+        customView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("click auf die View");
+            }
+        });
+
+
         offerTextBeschreibung.setText(item.getBeschreibung());
         bewertung.setText("Bewertung");
         offerTextName.setText(item.getOfferName());

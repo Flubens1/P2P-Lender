@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -44,6 +46,7 @@ public class LoanList extends AppCompatActivity {
         ListAdapter adapter = new CustomAdapter(this, offers, mail);
         ListView listView = (ListView)findViewById(R.id.loanListView);
         listView.setAdapter(adapter);
+
 
     }
 
