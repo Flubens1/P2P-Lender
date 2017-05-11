@@ -88,7 +88,7 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
                 String mail = pref.getString("mail", "");
 
                 for (int i = offers.size()-1; i >= 0; i--) {
-                    if (!offers.get(i).getLender().equals(mail)) {
+                    if (!offers.get(i).getBorrower().equals(mail)) {
                         offers.remove(offers.get(i));
                     }
                 }

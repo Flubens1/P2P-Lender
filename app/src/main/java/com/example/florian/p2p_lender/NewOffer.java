@@ -23,7 +23,10 @@ public class NewOffer extends AppCompatActivity{
     Button showButton;
     EditText input;
     EditText name;
+    EditText laufzeit;
+    EditText betrag;
     TextView output;
+
 
     String mail = "";
 
@@ -37,6 +40,8 @@ public class NewOffer extends AppCompatActivity{
 
         name = (EditText)findViewById(R.id.editTextName);
         input = (EditText)findViewById(R.id.inputText);
+        laufzeit = (EditText)findViewById(R.id.newOfferLaufzeit);
+        betrag = (EditText)findViewById(R.id.newOfferBetrag);
 
         //final String filename = name.getText().toString() + ".txt";
 
@@ -51,8 +56,8 @@ public class NewOffer extends AppCompatActivity{
             @Override
             public void onClick(View v) {
 
-                Offer o = new Offer(name.getText().toString(), input.getText().toString(), mail);
-                o.setLender(mail);
+                Offer o = new Offer(name.getText().toString(), input.getText().toString(), mail, Integer.parseInt(laufzeit.getText().toString()), Integer.parseInt(betrag.getText().toString()));
+                o.setBorrower(mail);
                 SharedPreferences.Editor editor = pref.edit();
                 editor.putString("offerTitle", name.getText().toString());
                 editor.putString("offerDescription", input.getText().toString());

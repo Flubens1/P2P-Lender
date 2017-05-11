@@ -8,23 +8,27 @@ public class Offer {
 
     private String offerName;
     private String beschreibung;
-    private String lender;
+    private String borrower;
     private String investor;
+    private int laufzeit;
+    private int betrag;
 
 
-    public Offer(String offerName, String beschreibung, String userMail) {
+
+    public Offer(String offerName, String beschreibung, String userMail, int laufzeit, int betrag) {
         setOfferName(offerName);
         setBeschreibung(beschreibung);
-        setLender(userMail);
-
+        setBorrower(userMail);
+        setLaufzeit(laufzeit);
+        setBetrag(betrag);
     }
 
-    public String getLender() {
-        return lender;
+    public String getBorrower() {
+        return borrower;
     }
 
-    public void setLender(String lender) {
-        this.lender = lender;
+    public void setBorrower(String borrower) {
+        this.borrower = borrower;
     }
 
     public String getInvestor() {
@@ -49,5 +53,21 @@ public class Offer {
 
     public void setBeschreibung(String beschreibung) {
         this.beschreibung = beschreibung;
+    }
+
+    public int getLaufzeit() {
+        return laufzeit;
+    }
+
+    public void setLaufzeit(int laufzeit) {
+        this.laufzeit = laufzeit;
+    }
+
+    public int getBetrag() {
+        return betrag;
+    }
+
+    public void setBetrag(int betrag) {
+        this.betrag = betrag;
     }
 }

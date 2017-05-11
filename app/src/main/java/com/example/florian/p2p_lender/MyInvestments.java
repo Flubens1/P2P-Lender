@@ -37,7 +37,7 @@ public class MyInvestments extends AppCompatActivity {
             //need some more variables here before I try anything
             if (!temp.getInvestor().equals(mailAddressInvestor)) {
                 System.out.println(temp.getInvestor());
-                System.out.println(temp.getLender());
+                System.out.println(temp.getBorrower());
                 offerList.remove(temp);
             }
         }
