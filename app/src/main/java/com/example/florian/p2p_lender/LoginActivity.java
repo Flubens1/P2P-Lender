@@ -32,6 +32,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -338,6 +339,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             ArrayList<User> userList;
             //TODO: make sure exception is handled when user attempts to login without any accounts being in the database, else app crashes
             userList = pUser.getUserList();
+            if (userList == null) {
+                CharSequence text = "You first need to create an account!";
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(ctx, text, duration);
+                toast.show();
+                Intent mIntent = new Intent(LoginActivity.this, MainActivity.class);
+                LoginActivity.this.startActivity(mIntent);
+            }
 
             User temp;
             Iterator<User> iterator = userList.iterator();
