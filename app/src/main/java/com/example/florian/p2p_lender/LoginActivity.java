@@ -70,6 +70,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    Context ctx = LoginActivity.this;
+    ArrayList<User> userList;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +105,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+        PersistUser pUser = new PersistUser(ctx);
+        userList = pUser.getUserList();
+        if (userList == null){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
+
     }
 
     private void populateAutoComplete() {
@@ -334,19 +345,22 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 }
             }*/
 
-            Context ctx = LoginActivity.this;
-            PersistUser pUser = new PersistUser(ctx);
-            ArrayList<User> userList;
+//            Context ctx = LoginActivity.this;
+//            PersistUser pUser = new PersistUser(ctx);
+//            ArrayList<User> userList;
             //TODO: make sure exception is handled when user attempts to login without any accounts being in the database, else app crashes
-            userList = pUser.getUserList();
-            if (userList == null) {
-                CharSequence text = "You first need to create an account!";
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(ctx, text, duration);
-                toast.show();
-                Intent mIntent = new Intent(LoginActivity.this, MainActivity.class);
-                LoginActivity.this.startActivity(mIntent);
-            }
+//            userList = pUser.getUserList();
+//            if (userList == null) {
+//                System.out.println("Userlist == Null");
+//                cancel(true);
+//                CharSequence text = "You first need to create an account!";
+//                int duration = Toast.LENGTH_SHORT;
+//                Toast toast = Toast.makeText(ctx, text, duration);
+//                toast.show();
+//
+//                Intent mIntent = new Intent(LoginActivity.this, MainActivity.class);
+//                LoginActivity.this.startActivity(mIntent);
+//            }
 
             User temp;
             Iterator<User> iterator = userList.iterator();
@@ -359,6 +373,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     SharedPreferences.Editor editor = pref.edit();
                     editor.putString("UUID", temp.getId().toString());
                     editor.putString("userMailAddress", temp.getMailAddress());
+
 
                     return true;
                 }
@@ -386,7 +401,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
 
         @Override
-        protected void onCancelled() {
+        protected void onCancelled(Boolean result) {
+            System.out.println("Cancelled" + result);
             mAuthTask = null;
             showProgress(false);
         }

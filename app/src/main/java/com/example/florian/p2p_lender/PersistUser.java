@@ -54,6 +54,8 @@ public class PersistUser {
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            System.out.println("catch FileNotFound => return null");
+            return null;
         } catch (IOException e) {
             e.printStackTrace();
         }
