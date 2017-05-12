@@ -13,6 +13,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -31,6 +33,8 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
     ConstraintLayout investLayout;
     ConstraintLayout loansLayout;
 
+    TextView totalInvestMents;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,23 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
         investLayout.setOnClickListener(this);
         loansLayout = (ConstraintLayout) findViewById(R.id.loansViewButton);
         loansLayout.setOnClickListener(this);
+
+
+        // hab angefangen die Investments zu setten
+        totalInvestMents = (TextView)findViewById(R.id.count_invests_textView);
+        PersistOffers persistOffers = new PersistOffers(ctx);
+        if (persistOffers.getOfferList() != null) {
+            ArrayList<Offer> offers = persistOffers.getOfferList();
+            int totalInvestments_ = 0;
+            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+            String mail = pref.getString("mail", "");
+            for (Offer each : offers) {
+                if (each.getInvestor()!=null)
+                if (each.getInvestor().equals(mail)) totalInvestments_++;
+            }
+            totalInvestMents.setText("Investments: " + String.valueOf(totalInvestments_));
+        }
+
 
 
     }
