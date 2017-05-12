@@ -1,5 +1,6 @@
 package com.example.florian.p2p_lender;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -10,13 +11,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class DetailedOffer extends AppCompatActivity implements View.OnClickListener{
     TextView offerTitle, offerDescription, actualOfferTitle, actualOfferDescription;
+    TextView actualOfferBetrag;
+    TextView actualLaufzeit;
     Button investButton;
 
-    boolean offerWasInvestedIn = false;
+    ArrayList<Offer> offers = null;
+    Offer actualOffer = null;
+    String investor = "";
+    Context ctx = this;
 
 
     @Override
@@ -31,16 +38,34 @@ public class DetailedOffer extends AppCompatActivity implements View.OnClickList
         String mailSavedInOffer = pref.getString("mail", "");*/
         String actualTitle = pref.getString("offerTitle", "");
         String actualDescription = pref.getString("offerDescription", "");
+        investor = pref.getString("mail", "");
+
+        PersistOffers persistOffers = new PersistOffers(ctx);
+        offers = persistOffers.getOfferList();
+
+        for (Offer each : offers) {
+            if (each.getOfferName().equals(actualTitle)) {
+                actualOffer = each;
+            }
+        }
 
         offerTitle = (TextView) findViewById(R.id.offerTitle);
-        offerDescription = (TextView) findViewById(R.id.offerDescription);
         actualOfferTitle = (TextView) findViewById(R.id.actualTitle);
-        actualOfferTitle.setText(actualTitle);
+        actualOfferTitle.setText(actualOffer.getOfferName());
+
+        offerDescription = (TextView) findViewById(R.id.offerDescription);
         actualOfferDescription = (TextView) findViewById(R.id.actualDescription);
-        actualOfferDescription.setText(actualDescription);
+        actualOfferDescription.setText(actualOffer.getBeschreibung());
+
+        actualLaufzeit = (TextView)findViewById(R.id.detailedOfferActualRunningTime);
+        actualLaufzeit.setText(String.valueOf(actualOffer.getLaufzeit()));
+
+        actualOfferBetrag = (TextView)findViewById(R.id.detailedOfferActualBetrag);
+        actualOfferBetrag.setText(String.valueOf(actualOffer.getBetrag()));
+
+
         investButton = (Button) findViewById(R.id.investInOffer);
         investButton.setOnClickListener(this);
-
 
     }
 
@@ -51,8 +76,10 @@ public class DetailedOffer extends AppCompatActivity implements View.OnClickList
             //mailSavedInOffer however is saved when a new offer is created. Upon creation
             //it immediately sets the 'lender' variable in the offer object to that of the one that created said offer
             //this is clearly a workaround method until I figure how to access the clicked on Offer object
-            offerWasInvestedIn = true;
-            System.out.println(offerWasInvestedIn);
+
+            actualOffer.setInvestor(investor);
+            System.out.println(actualOffer.getInvestor());
+
         }
     }
 

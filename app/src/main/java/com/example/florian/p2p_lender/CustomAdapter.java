@@ -47,30 +47,10 @@ public class CustomAdapter extends ArrayAdapter<Offer> {
         ImageView image = (ImageView)customView.findViewById(R.id.customRowImage);
         TextView bewertung = (TextView)customView.findViewById(R.id.bewertung);
 
-        System.out.println("bin in der view");
-
-        Button investButton = (Button)customView.findViewById(R.id.investButton);
-        investButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Offer offer = getItem(position);
-                offer.setInvestor(investorMail);
-                System.out.println("in der onclick");
-                System.out.println(investorMail);
-                System.out.println("check: " + offer.getInvestor());
-                //item.setInvestor(investorMail);
-                Intent mIntent = new Intent(mContext, DetailedOffer.class);
-                System.out.println("right before starting DetailedOffer activity");
-                mContext.startActivity(mIntent);
-
-            }
-        });
-
-
         customView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("click auf die View");
+
                 Offer offer = getItem(position);
                 System.out.println("check: " + offer.getOfferName());
                 Intent mIntent = new Intent(v.getContext(), DetailedOffer.class);

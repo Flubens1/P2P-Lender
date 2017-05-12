@@ -20,7 +20,9 @@
         app:layout_constraintVertical_bias="0.4"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="@+id/button4"
-        app:layout_constraintHorizontal_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <Button
         android:id="@+id/button3"
@@ -35,7 +37,9 @@
         app:layout_constraintVertical_bias="0.4"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="@+id/button4"
-        app:layout_constraintLeft_toLeftOf="@+id/button2" />
+        app:layout_constraintLeft_toLeftOf="@+id/button2"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <Button
         android:id="@+id/button4"
@@ -51,12 +55,14 @@
         app:layout_constraintHorizontal_bias="1.0"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/loanListView"
-        app:layout_constraintVertical_bias="0.4" />
+        app:layout_constraintVertical_bias="0.4"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <ListView
         android:id="@+id/loanListView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
