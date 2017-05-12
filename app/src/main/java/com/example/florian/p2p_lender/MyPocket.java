@@ -158,8 +158,38 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
 //        }
 
         if (v == investLayout){
-            Intent intent = new Intent(this, MyProfile.class);
-            startActivity(intent);
+            PersistOffers pOffers = new PersistOffers(ctx);
+
+            if (pOffers.getOfferList() == null) {
+
+                CharSequence text = "There are no Investments to show";
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(ctx, text, duration);
+                toast.show();
+
+            } else {
+
+                ArrayList<Offer> offers = pOffers.getOfferList();
+                SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+                String mail = pref.getString("mail", "");
+
+                for (int i = offers.size()-1; i >= 0; i--) {
+                    if (!offers.get(i).getInvestor().equals(mail)) {
+                        offers.remove(offers.get(i));
+                    }
+                }
+
+                if (offers.size() == 0) {
+                    CharSequence text = "You have no Investments";
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(ctx, text, duration);
+                    toast.show();
+                } else {
+                    Intent intent = new Intent(this, MyInvestments.class);
+                    startActivity(intent);
+
+                }
+            }
 
         }
 

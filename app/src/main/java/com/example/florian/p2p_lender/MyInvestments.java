@@ -14,10 +14,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class MyInvestments extends AppCompatActivity {
+    Context ctx = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        /*super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_investments);
         Context ctx = MyInvestments.this;
 
@@ -47,6 +48,26 @@ public class MyInvestments extends AppCompatActivity {
         //use only after final list has been created
         //ListAdapter adapter = new CustomAdapter(this, offerList);
         ListView listView = (ListView)findViewById(R.id.investmentListView);
-        //listView.setAdapter(adapter);
+        //listView.setAdapter(adapter);*/
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_my_investments);
+
+        PersistOffers pOffers = new PersistOffers(ctx);
+        ArrayList<Offer> offers = pOffers.getOfferList();
+
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        String mail = pref.getString("mail", "");
+
+        for (int i = offers.size()-1; i >= 0; i--) {
+            if (!offers.get(i).getInvestor().equals(mail)) {
+                offers.remove(offers.get(i));
+            }
+        }
+
+        ListAdapter adapter = new CustomAdapter(this, offers, mail);
+        ListView listView = (ListView)findViewById(R.id.investmentListView);
+        listView.setAdapter(adapter);
+
     }
 }
