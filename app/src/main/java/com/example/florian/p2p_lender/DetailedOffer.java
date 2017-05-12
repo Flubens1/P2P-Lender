@@ -75,13 +75,6 @@ public class DetailedOffer extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v ) {
         if (v == investButton) {
-            //mailAddress is being saved when a user logs in, thus it's his mail address string.
-            //mailSavedInOffer however is saved when a new offer is created. Upon creation
-            //it immediately sets the 'lender' variable in the offer object to that of the one that created said offer
-            //this is clearly a workaround method until I figure how to access the clicked on Offer object
-
-            //actualOffer.setInvestor(investor);
-            //System.out.println(actualOffer.getInvestor());
 
             offers.get(index).setInvestor(investor);
             persistOffers.saveOfferList(ctx, offers);

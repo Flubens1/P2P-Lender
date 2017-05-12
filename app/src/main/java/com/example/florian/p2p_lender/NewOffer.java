@@ -20,17 +20,13 @@ import java.io.IOException;
 public class NewOffer extends AppCompatActivity{
 
     Button saveButton;
-    Button showButton;
     EditText input;
     EditText name;
     EditText laufzeit;
     EditText betrag;
-    TextView output;
-
 
     String mail = "";
 
-    Button goToLoanList;
     Context ctx = this;
 
     @Override
@@ -58,20 +54,15 @@ public class NewOffer extends AppCompatActivity{
 
                 Offer o = new Offer(name.getText().toString(), input.getText().toString(), mail, Integer.parseInt(laufzeit.getText().toString()), Integer.parseInt(betrag.getText().toString()));
                 o.setBorrower(mail);
-                SharedPreferences.Editor editor = pref.edit();
-                editor.putString("offerTitle", name.getText().toString());
-                editor.putString("offerDescription", input.getText().toString());
-                editor.apply();
 
-                System.out.println("Save invests_button pressed");
                 ctx.getApplicationContext();
                 PersistOffers persistOffers = new PersistOffers(ctx);
-//                Context ctx = null;
-
-
                 persistOffers.saveOffer(ctx, o);
-                System.out.println("Saved probably");
 //                saveFile(filename, input.getText().toString());
+                CharSequence text = "Congratulations you created a new offer";
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(ctx, text, duration);
+                toast.show();
                 Intent intent = new Intent(v.getContext(), MyPocket.class);
                 startActivity(intent);
 

@@ -26,9 +26,7 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
 
     Button newOffer;
     Button listViewButton;
-//    Button myProfileButton;
-//    Button myLoansButton;
-//    Button investmentsButton;
+
     Context ctx = this;
     ConstraintLayout investLayout;
     ConstraintLayout loansLayout;
@@ -43,12 +41,7 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
         newOffer.setOnClickListener(this);
         listViewButton = (Button)findViewById(R.id.listViewButton);
         listViewButton.setOnClickListener(this);
-//        myProfileButton = (Button)findViewById(R.id.buttonProfile);
-//        myProfileButton.setOnClickListener(this);
-//        myLoansButton = (Button)findViewById(R.id.loansButton);
-//        myLoansButton.setOnClickListener(this);
-//        investmentsButton = (Button)findViewById(R.id.investmentsButton);
-//        investmentsButton.setOnClickListener(this);
+
         investLayout = (ConstraintLayout) findViewById(R.id.investViewButton);
         investLayout.setOnClickListener(this);
         loansLayout = (ConstraintLayout) findViewById(R.id.loansViewButton);
@@ -92,17 +85,12 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
                 Toast toast = Toast.makeText(ctx, text, duration);
                 toast.show();
             } else {
-
                 ArrayList<Offer> offers = pOffers.getOfferList();
-                SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-                String mail = pref.getString("mail", "");
-
                 for (int i = offers.size()-1; i >= 0; i--) {
                     if (offers.get(i).getInvestor() != null) {
                         offers.remove(offers.get(i));
                     }
                 }
-
                 if (offers.size() == 0) {
                     CharSequence text = "There are no open Offers to show";
                     int duration = Toast.LENGTH_SHORT;
@@ -112,52 +100,9 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
                     Intent intent = new Intent(this, LoanList.class);
                     startActivity(intent);
                 }
-
-
-
             }
-
         }
 
-//        if (v==investmentsButton) {
-//            Intent intent = new Intent(this, MyInvestments.class);
-//            startActivity(intent);
-//        }
-
-//        if (v==myLoansButton) {
-//            PersistOffers pOffers = new PersistOffers(ctx);
-//
-//            if (pOffers.getOfferList() == null) {
-//
-//                CharSequence text = "There are no Offers to show";
-//                int duration = Toast.LENGTH_SHORT;
-//                Toast toast = Toast.makeText(ctx, text, duration);
-//                toast.show();
-//
-//            } else {
-//
-//                ArrayList<Offer> offers = pOffers.getOfferList();
-//                SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-//                String mail = pref.getString("mail", "");
-//
-//                for (int i = offers.size()-1; i >= 0; i--) {
-//                    if (!offers.get(i).getBorrower().equals(mail)) {
-//                        offers.remove(offers.get(i));
-//                    }
-//                }
-//
-//                if (offers.size() == 0) {
-//                    CharSequence text = "You have no Loans";
-//                    int duration = Toast.LENGTH_SHORT;
-//                    Toast toast = Toast.makeText(ctx, text, duration);
-//                    toast.show();
-//                } else {
-//                    Intent intent = new Intent(this, MyLoans.class);
-//                    startActivity(intent);
-//
-//                }
-//            }
-//        }
 
         if (v == investLayout){
             PersistOffers pOffers = new PersistOffers(ctx);
@@ -213,26 +158,20 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
 
         if (v == loansLayout){
             PersistOffers pOffers = new PersistOffers(ctx);
-
             if (pOffers.getOfferList() == null) {
-
                 CharSequence text = "There are no Offers to show";
                 int duration = Toast.LENGTH_SHORT;
                 Toast toast = Toast.makeText(ctx, text, duration);
                 toast.show();
-
             } else {
-
                 ArrayList<Offer> offers = pOffers.getOfferList();
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
                 String mail = pref.getString("mail", "");
-
                 for (int i = offers.size()-1; i >= 0; i--) {
                     if (!offers.get(i).getBorrower().equals(mail)) {
                         offers.remove(offers.get(i));
                     }
                 }
-
                 if (offers.size() == 0) {
                     CharSequence text = "You have no Loans";
                     int duration = Toast.LENGTH_SHORT;
@@ -241,15 +180,10 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
                 } else {
                     Intent intent = new Intent(this, MyLoans.class);
                     startActivity(intent);
-
                 }
             }
 
         }
 
-//        if (v==myProfileButton) {
-//            Intent intent = new Intent(this, MyProfile.class);
-//            startActivity(intent);
-//        }
     }
 }
