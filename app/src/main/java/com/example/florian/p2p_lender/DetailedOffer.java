@@ -24,7 +24,8 @@ public class DetailedOffer extends AppCompatActivity implements View.OnClickList
     Offer actualOffer = null;
     String investor = "";
     Context ctx = this;
-
+    int index = 0;
+    PersistOffers persistOffers = new PersistOffers(ctx);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +41,13 @@ public class DetailedOffer extends AppCompatActivity implements View.OnClickList
         String actualDescription = pref.getString("offerDescription", "");
         investor = pref.getString("mail", "");
 
-        PersistOffers persistOffers = new PersistOffers(ctx);
+
         offers = persistOffers.getOfferList();
 
         for (Offer each : offers) {
             if (each.getOfferName().equals(actualTitle)) {
                 actualOffer = each;
+                index = offers.indexOf(each);
             }
         }
 
@@ -77,8 +79,13 @@ public class DetailedOffer extends AppCompatActivity implements View.OnClickList
             //it immediately sets the 'lender' variable in the offer object to that of the one that created said offer
             //this is clearly a workaround method until I figure how to access the clicked on Offer object
 
-            actualOffer.setInvestor(investor);
-            System.out.println(actualOffer.getInvestor());
+            //actualOffer.setInvestor(investor);
+            //System.out.println(actualOffer.getInvestor());
+
+            offers.get(index).setInvestor(investor);
+            persistOffers.saveOfferList(ctx, offers);
+
+
 
         }
     }
