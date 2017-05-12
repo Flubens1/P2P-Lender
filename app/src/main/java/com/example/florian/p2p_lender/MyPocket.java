@@ -34,6 +34,7 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
     ConstraintLayout loansLayout;
 
     TextView totalInvestMents;
+    TextView totalAmount;
 
 
     @Override
@@ -52,19 +53,29 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
         loansLayout.setOnClickListener(this);
 
 
-        // hab angefangen die Investments zu setten
+        // Martin ich hab angefangen die Investments zu setten-------------------------------------------------
+        // momentan nur die Investments
         totalInvestMents = (TextView)findViewById(R.id.count_invests_textView);
+        totalAmount = (TextView)findViewById(R.id.amount_invests_textView);
         PersistOffers persistOffers = new PersistOffers(ctx);
         if (persistOffers.getOfferList() != null) {
             ArrayList<Offer> offers = persistOffers.getOfferList();
             int totalInvestments_ = 0;
+            int totalamount = 0;
             SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
             String mail = pref.getString("mail", "");
             for (Offer each : offers) {
-                if (each.getInvestor()!=null)
-                if (each.getInvestor().equals(mail)) totalInvestments_++;
+                if (each.getInvestor()!=null) {
+                    if (each.getInvestor().equals(mail)) {
+                        totalInvestments_++;
+                        totalamount += each.getBetrag();
+                    }
+
+                }
+
             }
             totalInvestMents.setText("Investments: " + String.valueOf(totalInvestments_));
+            totalAmount.setText("Amount: " + String.valueOf(totalamount));
         }
 
 
