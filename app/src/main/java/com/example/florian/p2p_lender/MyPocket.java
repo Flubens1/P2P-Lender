@@ -78,7 +78,7 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
             totalAmount.setText("Amount: " + String.valueOf(totalamount));
         }
 
-
+        //-----------------------------------------------------------------------------------------------------
 
     }
 
