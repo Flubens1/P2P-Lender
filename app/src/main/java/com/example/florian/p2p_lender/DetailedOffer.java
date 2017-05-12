@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -85,7 +86,13 @@ public class DetailedOffer extends AppCompatActivity implements View.OnClickList
             offers.get(index).setInvestor(investor);
             persistOffers.saveOfferList(ctx, offers);
 
+            CharSequence text = "Congratulations you invested in this offer";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(ctx, text, duration);
+            toast.show();
 
+            Intent intent = new Intent(this, MyPocket.class);
+            startActivity(intent);
 
         }
     }

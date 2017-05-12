@@ -80,6 +80,9 @@ public class MyInvestments extends AppCompatActivity {
             }
         }
 
+        // aus irgendeinem grund muss man sooft return drücken um wieder von der activity weg zu kommmen, wie die anzahl der investments ist,
+        // was bei 3 investments schon nervig ist, ich würd ne andere schleife machen
+
         ListAdapter adapter = new CustomAdapter(this, offers, mail);
         ListView listView = (ListView)findViewById(R.id.investmentListView);
         listView.setAdapter(adapter);
