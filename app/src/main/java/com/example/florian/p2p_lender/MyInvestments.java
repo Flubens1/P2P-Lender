@@ -68,8 +68,11 @@ public class MyInvestments extends AppCompatActivity {
         Iterator<Offer> iterator = offers.iterator();
         Offer temp;
         while (iterator.hasNext()) {
+
             temp = iterator.next();
-            if (temp.getInvestor() == null) {
+            System.out.println(temp.getInvestor());
+            if (temp.getInvestor() == null) {  // magst du den nicht eher removen? warum soll ein null drinnen bleiben?
+                //offers.remove(temp);
                 break;
             }
             if (!temp.getInvestor().equals(mail)) {
