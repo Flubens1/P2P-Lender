@@ -63,7 +63,7 @@ public class NewOffer extends AppCompatActivity{
                 editor.putString("offerDescription", input.getText().toString());
                 editor.apply();
 
-                System.out.println("Save button pressed");
+                System.out.println("Save invests_button pressed");
                 ctx.getApplicationContext();
                 PersistOffers persistOffers = new PersistOffers(ctx);
 //                Context ctx = null;
