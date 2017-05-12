@@ -61,9 +61,29 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
                 Toast toast = Toast.makeText(ctx, text, duration);
                 toast.show();
             } else {
-                Intent intent = new Intent(this, LoanList.class);
-                startActivity(intent);
+
+                ArrayList<Offer> offers = pOffers.getOfferList();
+                SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+                String mail = pref.getString("mail", "");
+
+                for (int i = offers.size()-1; i >= 0; i--) {
+                    if (offers.get(i).getInvestor() != null) {
+                        offers.remove(offers.get(i));
+                    }
+                }
+
+                if (offers.size() == 0) {
+                    CharSequence text = "There are no open Offers to show";
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(ctx, text, duration);
+                    toast.show();
+                } else {
+                    Intent intent = new Intent(this, MyLoans.class);
+                    startActivity(intent);
+                }
+
             }
+
         }
 
         if (v==investmentsButton) {
