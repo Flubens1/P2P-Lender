@@ -168,15 +168,25 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
                 toast.show();
 
             } else {
-
+                System.out.println("im else");
                 ArrayList<Offer> offers = pOffers.getOfferList();
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
                 String mail = pref.getString("mail", "");
-
+                boolean found = false;
                 for (int i = offers.size()-1; i >= 0; i--) {
-                    if (!offers.get(i).getInvestor().equals(mail)) {
-                        offers.remove(offers.get(i));
+
+                    if (offers.get(i).getInvestor() != null) {
+
+                        if (!offers.get(i).getInvestor().equals(mail)) {
+                            System.out.println(offers.get(i).getInvestor());
+                            offers.remove(offers.get(i));
+                        } else {
+                            found = true;
+                            Intent intent = new Intent(this, MyInvestments.class);
+                            startActivity(intent);
+                        }
                     }
+
                 }
 
                 if (offers.size() == 0) {
@@ -184,11 +194,17 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
                     int duration = Toast.LENGTH_SHORT;
                     Toast toast = Toast.makeText(ctx, text, duration);
                     toast.show();
-                } else {
+                } else if (found){
                     Intent intent = new Intent(this, MyInvestments.class);
                     startActivity(intent);
 
+                } else {
+                    CharSequence text = "You have no Investments";
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(ctx, text, duration);
+                    toast.show();
                 }
+
             }
 
         }
