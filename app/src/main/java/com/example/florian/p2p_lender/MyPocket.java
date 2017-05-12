@@ -109,9 +109,11 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
                     Toast toast = Toast.makeText(ctx, text, duration);
                     toast.show();
                 } else {
-                    Intent intent = new Intent(this, MyLoans.class);
+                    Intent intent = new Intent(this, LoanList.class);
                     startActivity(intent);
                 }
+
+
 
             }
 

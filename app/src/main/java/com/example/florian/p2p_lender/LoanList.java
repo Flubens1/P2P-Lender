@@ -36,14 +36,22 @@ public class LoanList extends AppCompatActivity {
         PersistOffers pOffers = new PersistOffers(ctx);
         ArrayList<Offer> offers = pOffers.getOfferList();
 
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        String mail = pref.getString("mail", "");
+
+        for (int i = offers.size()-1; i >= 0; i--) {
+            System.out.println("turn" + i + offers.get(i).getOfferName());
+            System.out.println(offers.get(i).getInvestor());
+            if (offers.get(i).getInvestor() != null) {
+                offers.remove(offers.get(i));
+            }
+        }
 
 
        /* for (Offer each : offers) {
             System.out.println("investor: " + each.getInvestor());
         }*/
 
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-        String mail = pref.getString("mail", "");
 
         ListAdapter adapter = new CustomAdapter(this, offers, mail);
         ListView listView = (ListView)findViewById(R.id.loanListView);
