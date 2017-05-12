@@ -173,11 +173,24 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
                 String mail = pref.getString("mail", "");
 
-                for (int i = offers.size()-1; i >= 0; i--) {
+                Iterator<Offer> iterator = offers.iterator();
+                Offer temp;
+                while (iterator.hasNext()) {
+                    temp = iterator.next();
+                    if (temp.getInvestor() == null) {
+                        break;
+                    }
+                    if (!temp.getInvestor().equals(mail)) {
+                        offers.remove(temp);
+                    }
+                }
+
+
+                /*for (int i = offers.size()-1; i >= 0; i--) {
                     if (!offers.get(i).getInvestor().equals(mail)) {
                         offers.remove(offers.get(i));
                     }
-                }
+                }*/
 
                 if (offers.size() == 0) {
                     CharSequence text = "You have no Investments";
