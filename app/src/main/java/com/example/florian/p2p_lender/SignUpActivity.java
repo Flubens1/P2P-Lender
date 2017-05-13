@@ -63,7 +63,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                     editor.putString("mail", mailAddress);
                     editor.commit();
 
-                    Intent intent = new Intent(this, MainActivity.class);
+                    Intent intent = new Intent(this, MyPocket.class);
                     startActivity(intent);
                 }
                 else {

@@ -1,12 +1,14 @@
 package com.example.florian.p2p_lender;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -15,6 +17,7 @@ import java.util.Iterator;
 
 public class MyInvestments extends AppCompatActivity {
     Context ctx = this;
+    Button returnButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,15 @@ public class MyInvestments extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_investments);
+
+        returnButton = (Button) findViewById(R.id.returnButtonInvestments);
+        returnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mIntent = new Intent(v.getContext(), MyPocket.class);
+                v.getContext().startActivity(mIntent);
+            }
+        });
 
         PersistOffers pOffers = new PersistOffers(ctx);
         ArrayList<Offer> offers = pOffers.getOfferList();

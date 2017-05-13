@@ -35,6 +35,8 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
 
     TextView totalInvestMents;
     TextView totalAmount;
+    TextView totalLoans;
+    TextView totalLoansAmount;
 
 
     @Override
@@ -79,6 +81,32 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
         }
 
         //-----------------------------------------------------------------------------------------------------
+        totalLoans = (TextView) findViewById(R.id.count_loans_textView);
+        totalLoansAmount = (TextView) findViewById(R.id.amount_loans_textView);
+
+        if (persistOffers.getOfferList() != null) {
+            ArrayList<Offer> mOffers = persistOffers.getOfferList();
+            int totalLoansInt = 0;
+            int totalLoansAmountInt = 0;
+            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+            String mail = pref.getString("mail", "");
+
+            for (Offer each : mOffers) {
+                //if (each.getBorrower() != null) {
+                    if (each.getBorrower().equals(mail)) {
+                        totalLoansInt++;
+                        totalLoansAmountInt += each.getBetrag();
+                    }
+               // }
+            }
+
+            totalLoans.setText("Loans: " + String.valueOf(totalLoansInt));
+            totalLoansAmount.setText("Amount: " + String.valueOf(totalLoansAmountInt));
+        }
+
+
+
+
 
     }
 
