@@ -9,7 +9,7 @@ public class Offer {
     private String offerName;
     private String beschreibung;
     private String borrower;
-    private String investor;
+    private String investor = null;
     private int laufzeit;
     private int betrag;
 

@@ -372,8 +372,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
                     SharedPreferences.Editor editor = pref.edit();
                     editor.putString("UUID", temp.getId().toString());
-                    editor.putString("userMailAddress", temp.getMailAddress());
-
+                    editor.putString("mail", temp.getMailAddress());
+                    editor.commit();
 
                     return true;
                 }

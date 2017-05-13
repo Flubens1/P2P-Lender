@@ -55,17 +55,21 @@ public class MyInvestments extends AppCompatActivity {
 
         PersistOffers pOffers = new PersistOffers(ctx);
         ArrayList<Offer> offers = pOffers.getOfferList();
-
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         String mail = pref.getString("mail", "");
-
-        /*for (int i = offers.size()-1; i >= 0; i--) {
-            if (!offers.get(i).getInvestor().equals(mail)) {
+        //System.out.println(mail);
+        for (int i = offers.size()-1; i >= 0; i--) {
+            if (offers.get(i).getInvestor() != null) {
+                if (!offers.get(i).getInvestor().equals(mail)) {
+                    offers.remove(offers.get(i));
+                }
+            }
+            if (offers.get(i).getInvestor() == null) {
                 offers.remove(offers.get(i));
             }
-        }*/
+        }
 
-        Iterator<Offer> iterator = offers.iterator();
+        /*Iterator<Offer> iterator = offers.iterator();
         Offer temp;
         while (iterator.hasNext()) {
 
@@ -78,7 +82,7 @@ public class MyInvestments extends AppCompatActivity {
             if (!temp.getInvestor().equals(mail)) {
                 offers.remove(temp);
             }
-        }
+        }*/
 
         // aus irgendeinem grund muss man sooft return drücken um wieder von der activity weg zu kommmen, wie die anzahl der investments ist,
         // was bei 3 investments schon nervig ist, ich würd ne andere schleife machen

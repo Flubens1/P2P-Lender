@@ -147,7 +147,7 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
                 toast.show();
 
             } else {
-                System.out.println("im else");
+                System.out.println("im else MyPocket investments");
                 ArrayList<Offer> offers = pOffers.getOfferList();
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
                 String mail = pref.getString("mail", "");
@@ -161,11 +161,16 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
                             offers.remove(offers.get(i));
                         } else {
                             found = true;
-                            Intent intent = new Intent(this, MyInvestments.class);
-                            startActivity(intent);
                         }
                     }
+                    if (offers.get(i).getInvestor() == null) {
+                        offers.remove(offers.get(i));
+                    }
+                }
 
+                if (found) {
+                    Intent intent = new Intent(this, MyInvestments.class);
+                    startActivity(intent);
                 }
 
                 if (offers.size() == 0) {

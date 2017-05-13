@@ -15,6 +15,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import static android.R.attr.onClick;
+
 public class DetailedOffer extends AppCompatActivity implements View.OnClickListener{
     TextView offerTitle, offerDescription, actualOfferTitle, actualOfferDescription;
     TextView actualOfferBetrag;
@@ -34,12 +36,14 @@ public class DetailedOffer extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_detailed_offer);
         System.out.println("inside onCreate of DetailedOffer");
 
+        Intent mIntent = getIntent();
         final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         /*String mailAddress = pref.getString("userMailAddress", "");
         String userID = pref.getString("UUID", "");
         String mailSavedInOffer = pref.getString("mail", "");*/
-        String actualTitle = pref.getString("offerTitle", "");
-        String actualDescription = pref.getString("offerDescription", "");
+        String actualTitle = mIntent.getStringExtra("offerTitle");
+        System.out.println("inside DetailedOffer" + actualTitle);
+        String actualDescription = mIntent.getStringExtra("offerDescription");
         investor = pref.getString("mail", "");
 
 
@@ -75,10 +79,11 @@ public class DetailedOffer extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v ) {
         if (v == investButton) {
-
+            System.out.println(offers.size());
             offers.get(index).setInvestor(investor);
             persistOffers.saveOfferList(ctx, offers);
-
+            System.out.println("in detailedOffer onClick " + offers.get(index).getInvestor());
+            System.out.println(persistOffers.getOfferList().size());
             CharSequence text = "Congratulations you invested in this offer";
             int duration = Toast.LENGTH_SHORT;
             Toast toast = Toast.makeText(ctx, text, duration);
