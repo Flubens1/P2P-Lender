@@ -40,8 +40,8 @@ public class LoanList extends AppCompatActivity {
         String mail = pref.getString("mail", "");
 
         for (int i = offers.size()-1; i >= 0; i--) {
-            System.out.println("turn" + i + offers.get(i).getOfferName());
-            System.out.println(offers.get(i).getInvestor());
+            //System.out.println("turn" + i + offers.get(i).getOfferName());
+            //System.out.println(offers.get(i).getInvestor());
             if (offers.get(i).getInvestor() != null) {
                 offers.remove(offers.get(i));
             }

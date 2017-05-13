@@ -55,7 +55,7 @@ public class CustomAdapter extends ArrayAdapter<Offer> {
                 System.out.println("check: " + offer.getOfferName());
                 Intent mIntent = new Intent(v.getContext(), DetailedOffer.class);
                 mIntent.putExtra("offerTitle", offer.getOfferName());
-                mIntent.putExtra("offerDescription", offer.getBeschreibung());
+                //mIntent.putExtra("offerDescription", offer.getBeschreibung());
                 //todo: give uuid to DetailedOffer so it can access the respective object
                 v.getContext().startActivity(mIntent);
 

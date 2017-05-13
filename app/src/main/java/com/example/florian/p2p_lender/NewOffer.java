@@ -54,10 +54,6 @@ public class NewOffer extends AppCompatActivity{
 
                 Offer o = new Offer(name.getText().toString(), input.getText().toString(), mail, Integer.parseInt(laufzeit.getText().toString()), Integer.parseInt(betrag.getText().toString()));
                 o.setBorrower(mail);
-                //todo pass offerTitle to sharedPreference
-                SharedPreferences.Editor editor = pref.edit();
-                editor.putString("offerTitle", o.getOfferName());
-                editor.apply();
 
                 ctx.getApplicationContext();
                 PersistOffers persistOffers = new PersistOffers(ctx);

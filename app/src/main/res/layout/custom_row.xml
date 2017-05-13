@@ -37,9 +37,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="LargeText"
+        android:textAlignment="textEnd"
         android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@+id/customRowImage"
         app:layout_constraintTop_toBottomOf="@+id/bewertung"
-        app:layout_constraintLeft_toRightOf="@+id/customRowImage" />
+        android:layout_marginLeft="83dp"
+        android:layout_marginTop="0dp" />
 
     <TextView
         android:id="@+id/offerTextBeschreibung"
