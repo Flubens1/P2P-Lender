@@ -3,6 +3,7 @@ package com.example.florian.p2p_lender;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.preference.PreferenceManager;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.ActionBar;
@@ -53,6 +54,7 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
         investLayout.setOnClickListener(this);
         loansLayout = (ConstraintLayout) findViewById(R.id.loansViewButton);
         loansLayout.setOnClickListener(this);
+//        loansLayout.setBackgroundColor(Color.WHITE);
 
 
         // Martin ich hab angefangen die Investments zu setten-------------------------------------------------

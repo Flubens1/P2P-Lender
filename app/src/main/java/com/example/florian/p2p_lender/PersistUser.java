@@ -14,6 +14,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -71,7 +72,10 @@ public class PersistUser {
         }
         userList.add(user);
         System.out.println("loaded User list");
+        saveUserList(userList);
+    }
 
+    public void saveUserList(ArrayList<User> userList){
         FileOutputStream fileOutputStream;
         String offerJsonList = gson.toJson(userList);
         System.out.println(offerJsonList);
@@ -88,7 +92,37 @@ public class PersistUser {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
+    public User getUser(String mail){
+        ArrayList<User> userList = getUserList();
+
+        for (User u:
+             userList) {
+            if (u.getMailAddress().equals(mail)){
+                return u;
+            }
+        }
+
+
+        return null;
+    }
+
+
+    public void changeUser(User user){
+        ArrayList<User> userList = getUserList();
+        System.out.println("New User ( "+ user.getMailAddress() +") rating: "+user.getRating()+"\n");
+        for (User u:
+             userList) {
+            if (user.getMailAddress().equals(u.getMailAddress())){
+                u = user;
+                saveUserList(userList);
+//                return;
+            }
+            for(User uU: userList){
+                System.out.println("User: " + u.getMailAddress()+ "         Rating: "+u.getRating()+"\n");
+            }
+        }
 
 
 
