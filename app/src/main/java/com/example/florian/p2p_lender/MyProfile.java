@@ -25,8 +25,6 @@ public class MyProfile extends AppCompatActivity implements View.OnClickListener
         String name = pref.getString("userName", "");
         String rating = pref.getString("rating", "");
 
-        System.out.println("MyProfile:");
-        System.out.println(name);
 
         TextView email = (TextView)findViewById(R.id.emailView);
         email.setText(mail);

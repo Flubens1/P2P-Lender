@@ -41,10 +41,6 @@ public class DetailedOffer extends AppCompatActivity implements View.OnClickList
         System.out.println("inside onCreate of DetailedOffer");
 
         final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-        //String mailAddress = pref.getString("userMailAddress", "");
-        //String userID = pref.getString("UUID", "");
-        //String mailSavedInOffer = pref.getString("mail", "");
-        //String actualDescription = pref.getString("offerDescription", "");
         investor = pref.getString("mail", "");
         String actualTitle = getIntent().getStringExtra("offerTitle");
 

@@ -78,10 +78,6 @@ public class PersistUser {
     public void saveUserList(ArrayList<User> userList){
         FileOutputStream fileOutputStream;
         String offerJsonList = gson.toJson(userList);
-        System.out.println(offerJsonList);
-        for (User u: userList){
-            System.out.println(u.toString());
-        }
 
         try {
             fileOutputStream = ctx.openFileOutput(filename, Context.MODE_PRIVATE);

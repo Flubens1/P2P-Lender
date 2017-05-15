@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 public class LoanList extends AppCompatActivity {
 
-    //String filename = "";
     Context ctx = this;
 
 
@@ -27,20 +26,13 @@ public class LoanList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loan_list);
 
-       /* if (getIntent().getExtras() != null) {
 
-            filename = getIntent().getStringExtra("filename");
-
-        }*/
         PersistOffers pOffers = new PersistOffers(ctx);
         ArrayList<Offer> offers = pOffers.getOfferList();
 
-        //SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-        //String mail = pref.getString("mail", "");
 
         for (int i = offers.size()-1; i >= 0; i--) {
-            //System.out.println("turn" + i + offers.get(i).getOfferName());
-            //System.out.println(offers.get(i).getInvestor());
+
             if (offers.get(i).getInvestor() != null) {
                 offers.remove(offers.get(i));
             }
@@ -54,26 +46,4 @@ public class LoanList extends AppCompatActivity {
     }
 
 
-   /* public String readFile(String file) {
-
-        String text = "";
-
-        try {
-
-            FileInputStream fis = openFileInput(file);
-            int size = fis.available();
-            byte[] buffer = new byte[size];
-            fis.read(buffer);
-            fis.close();
-            text = new String(buffer);
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return text;
-    }
-*/
 }

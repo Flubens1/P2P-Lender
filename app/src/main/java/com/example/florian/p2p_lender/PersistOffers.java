@@ -34,8 +34,6 @@ public class PersistOffers{
 
 
                 try {
-
-                        System.out.println("try to fetch json");
                         FileInputStream fileInputStream = ctx.openFileInput(filename);
                         int size = fileInputStream.available();
                         byte[] buffer = new byte[size];
@@ -43,10 +41,6 @@ public class PersistOffers{
                         fileInputStream.close();
                         text = new String(buffer);
                         offers = gson.fromJson(text, OFFER_TYPE);
-                        System.out.println(offers.size());
-                        for (Offer o: offers){
-                            System.out.println(o.toString());
-                        }
                         return offers;
 
                 } catch (FileNotFoundException e) {
@@ -67,20 +61,12 @@ public class PersistOffers{
                     offers = new ArrayList<Offer>();
                 }
                 offers.add(offer);
-                System.out.println("loaded offer list");
 
                 FileOutputStream fileOutputStream;
                 String offerJsonList = gson.toJson(offers);
-                System.out.println(offerJsonList);
-                for (Offer o: offers){
-                    System.out.println(o.toString());
-                }
 
                 try {
-//                    System.out.println("Test1");
-//                    System.out.println(filename);
                     fileOutputStream = ctx.openFileOutput(filename, Context.MODE_PRIVATE);
-//                    System.out.println("Test2");
                     fileOutputStream.write(offerJsonList.getBytes());
                     fileOutputStream.close();
                 } catch (FileNotFoundException e) {

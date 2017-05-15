@@ -54,11 +54,9 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
         investLayout.setOnClickListener(this);
         loansLayout = (ConstraintLayout) findViewById(R.id.loansViewButton);
         loansLayout.setOnClickListener(this);
-//        loansLayout.setBackgroundColor(Color.WHITE);
 
 
-        // Martin ich hab angefangen die Investments zu setten-------------------------------------------------
-        // momentan nur die Investments
+
         totalInvestMents = (TextView)findViewById(R.id.count_invests_textView);
         totalAmount = (TextView)findViewById(R.id.amount_invests_textView);
         PersistOffers persistOffers = new PersistOffers(ctx);
@@ -82,7 +80,7 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
             totalAmount.setText("Amount: " + String.valueOf(totalamount));
         }
 
-        //-----------------------------------------------------------------------------------------------------
+
         totalLoans = (TextView) findViewById(R.id.count_loans_textView);
         totalLoansAmount = (TextView) findViewById(R.id.amount_loans_textView);
 
@@ -94,12 +92,12 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
             String mail = pref.getString("mail", "");
 
             for (Offer each : mOffers) {
-                //if (each.getBorrower() != null) {
+
                     if (each.getBorrower().equals(mail)) {
                         totalLoansInt++;
                         totalLoansAmountInt += each.getBetrag();
                     }
-               // }
+
             }
 
             totalLoans.setText("Loans: " + String.valueOf(totalLoansInt));
@@ -177,7 +175,7 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
                 toast.show();
 
             } else {
-                System.out.println("im else MyPocket investments");
+
                 ArrayList<Offer> offers = pOffers.getOfferList();
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
                 String mail = pref.getString("mail", "");
@@ -187,7 +185,6 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
                     if (offers.get(i).getInvestor() != null) {
 
                         if (!offers.get(i).getInvestor().equals(mail)) {
-                            System.out.println(offers.get(i).getInvestor());
                             offers.remove(offers.get(i));
                         } else {
                             found = true;

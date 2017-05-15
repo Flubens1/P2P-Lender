@@ -337,30 +337,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 return false;
             }
 
-            /*for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
-            }*/
-
-//            Context ctx = LoginActivity.this;
-//            PersistUser pUser = new PersistUser(ctx);
-//            ArrayList<User> userList;
-            //TODO: make sure exception is handled when user attempts to login without any accounts being in the database, else app crashes
-//            userList = pUser.getUserList();
-//            if (userList == null) {
-//                System.out.println("Userlist == Null");
-//                cancel(true);
-//                CharSequence text = "You first need to create an account!";
-//                int duration = Toast.LENGTH_SHORT;
-//                Toast toast = Toast.makeText(ctx, text, duration);
-//                toast.show();
-//
-//                Intent mIntent = new Intent(LoginActivity.this, MainActivity.class);
-//                LoginActivity.this.startActivity(mIntent);
-//            }
 
             User temp;
             Iterator<User> iterator = userList.iterator();
@@ -403,7 +379,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         @Override
         protected void onCancelled(Boolean result) {
-            System.out.println("Cancelled" + result);
             mAuthTask = null;
             showProgress(false);
         }
