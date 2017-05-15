@@ -14,7 +14,13 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.UUID;
-
+/*
+** This particular activity is displayed when a row inside the ListView (mInvestments, mLoans and so on)
+* is clicked.
+* By making use of SharedPreferences and Intent, the relevant data is fetched and displayed.
+* Additionally, a Button named "Invest" is used to change the "Investor" field of the Offer class
+* to that of the one who pressed it and save it persistently.
+ */
 public class DetailedOffer extends AppCompatActivity implements View.OnClickListener{
     TextView offerTitle, offerDescription, actualOfferTitle, actualOfferDescription;
     TextView actualOfferBetrag;

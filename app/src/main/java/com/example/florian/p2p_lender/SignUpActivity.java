@@ -11,7 +11,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
+/*
+**
+* The function of this activity is to allow the user to register an account by providing input data such as
+* username, mail address and of course a password.
+* The input is being checked on invalid data such as
+* no input at all, too short a password (min length is 2) and a valid email (which is compared to a predefined pattern).
+* If everything is in order, a new User object is created and persistently saved.
+ */
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button signUp;
@@ -42,6 +49,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick (View v) {
         if (v == signUp) {
 
+                //check username, email and password input
                 if (passwordConfirmation.getText().toString().equals(passwordInput.getText().toString()) &&
                         emailAddress.getText().toString().matches(mailPattern) &&
                         passwordInput.getText().toString().length() > 1 &&
@@ -67,6 +75,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                     startActivity(intent);
                 }
                 else {
+                    //AlertDialog used to display in case of incomplete input fields
                     AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
 
                     if (userName.getText().toString().length() == 0) {

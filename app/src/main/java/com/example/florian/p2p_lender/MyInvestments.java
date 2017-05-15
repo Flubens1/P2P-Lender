@@ -7,14 +7,19 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
+/*
+**
+* The idea of mInvestments is to display all offers the logged in user has invested in.
+* By fetching the persistently saved offers, we compare the "Investor" field-- an email address-- of the respective offer
+* to that of the one saved in SharedPreferences. Depending on whether or not the equals() method returns true or false,
+* we either keep or remove the respective Offer object.
+ */
 public class MyInvestments extends AppCompatActivity {
     Context ctx = this;
     Button returnButton;
@@ -69,7 +74,9 @@ public class MyInvestments extends AppCompatActivity {
         ArrayList<Offer> offers = pOffers.getOfferList();
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         String mail = pref.getString("mail", "");
-        //System.out.println(mail);
+
+        //As an array starts at 0, we take the length of the offers list and subtract 1 to avoid
+        //out of bonds problematics.
         for (int i = offers.size()-1; i >= 0; i--) {
             if (offers.get(i).getInvestor() != null) {
                 if (!offers.get(i).getInvestor().equals(mail)) {
@@ -81,24 +88,8 @@ public class MyInvestments extends AppCompatActivity {
             }
         }
 
-        /*Iterator<Offer> iterator = offers.iterator();
-        Offer temp;
-        while (iterator.hasNext()) {
-
-            temp = iterator.next();
-            System.out.println(temp.getInvestor());
-            if (temp.getInvestor() == null) {  // magst du den nicht eher removen? warum soll ein null drinnen bleiben?
-                offers.remove(temp);          // damit funkt es eher, aber ich will dir ja nicht drein reden
-                break;
-            }
-            if (!temp.getInvestor().equals(mail)) {
-                offers.remove(temp);
-            }
-        }*/
-
-        // aus irgendeinem grund muss man sooft return drücken um wieder von der activity weg zu kommmen, wie die anzahl der investments ist,
-        // was bei 3 investments schon nervig ist, ich würd ne andere schleife machen
-
+        //Once the list has been prepared appropriately, we use the CustomAdapter class to handle
+        //the way it's displayed in a ListView.
         ListAdapter adapter = new CustomAdapter(this, offers, mail);
         ListView listView = (ListView)findViewById(R.id.investmentListView);
         listView.setAdapter(adapter);

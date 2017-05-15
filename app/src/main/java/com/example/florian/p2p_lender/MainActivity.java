@@ -5,7 +5,11 @@ import android.view.View;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-
+/*
+**
+* This particular activity sets the layout and buttons and defines the onClick() method
+* depending on what button (LogIn or SignUp) was pressed.
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     Button logIn, signUp;

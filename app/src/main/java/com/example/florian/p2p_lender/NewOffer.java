@@ -16,7 +16,13 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
+/*
+**
+* This activity is accessed by pressing the "New Offer" button inside MyPocket.
+* Input is taken from the user (and SharedPreferences) and used to create an Offer object,
+* which in turn is then persistently saved in PersistOffers.
+* Afterwards, the user is being forwarded to the MyPocket activity.
+ */
 public class NewOffer extends AppCompatActivity{
 
     Button saveButton;

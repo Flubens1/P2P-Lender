@@ -1,7 +1,7 @@
 package com.example.florian.p2p_lender;
 
 /**
- * Created by florian on 01.05.17.
+ * POJO class
  */
 
 public class Offer {

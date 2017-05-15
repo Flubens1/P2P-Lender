@@ -3,7 +3,7 @@ package com.example.florian.p2p_lender;
 import java.util.UUID;
 
 /**
- * Created by aldinbradaric on 01/05/17.
+ * POJO class
  */
 
 public class User {
@@ -14,9 +14,9 @@ public class User {
     private int rating = 0;
 
     public User(String mail, String password, String userName) {
-        this.userName = userName;
-        this.mailAddress = mail;
-        this.password = password;
+        setUserName(userName);
+        setMailAddress(mail);
+        setPassword(password);
         setId();
         FakeRating fake = new FakeRating();
         rating = fake.getFakeRating();
