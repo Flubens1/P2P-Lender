@@ -1,7 +1,0 @@
-MyPocket anpassen
-ListViews anpassen
-MyInvestments, MyLoans, und LoanList jeweils CustomAdapter und CustomRow
-MyProfil anpassen => User ergänzen (Rating + Date of Rating)
-Range für random Werte berechnen
-Algo implementieren
-
