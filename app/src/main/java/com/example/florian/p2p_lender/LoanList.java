@@ -32,12 +32,11 @@ public class LoanList extends AppCompatActivity {
             filename = getIntent().getStringExtra("filename");
 
         }*/
-
         PersistOffers pOffers = new PersistOffers(ctx);
         ArrayList<Offer> offers = pOffers.getOfferList();
 
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-        String mail = pref.getString("mail", "");
+        //SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        //String mail = pref.getString("mail", "");
 
         for (int i = offers.size()-1; i >= 0; i--) {
             //System.out.println("turn" + i + offers.get(i).getOfferName());
@@ -47,13 +46,7 @@ public class LoanList extends AppCompatActivity {
             }
         }
 
-
-       /* for (Offer each : offers) {
-            System.out.println("investor: " + each.getInvestor());
-        }*/
-
-
-        ListAdapter adapter = new CustomAdapter(this, offers, mail);
+        ListAdapter adapter = new CustomAdapter(this, offers);
         ListView listView = (ListView)findViewById(R.id.loanListView);
         listView.setAdapter(adapter);
 

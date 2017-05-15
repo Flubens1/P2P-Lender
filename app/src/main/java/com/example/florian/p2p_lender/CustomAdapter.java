@@ -24,13 +24,13 @@ import static android.os.Build.VERSION_CODES.M;
 
 public class CustomAdapter extends ArrayAdapter<Offer> {
 
-    String investorMail = "";
+    //String investorMail = "";
     Offer item;
     Context mContext;
 
-    public CustomAdapter(Context context, ArrayList<Offer> offers, String investorMail) {
+    public CustomAdapter(Context context, ArrayList<Offer> offers) {
         super(context, R.layout.custom_row, offers);
-        this.investorMail = investorMail;
+        //this.investorMail = investorMail;
         this.mContext = context;
     }
 
@@ -52,11 +52,9 @@ public class CustomAdapter extends ArrayAdapter<Offer> {
             public void onClick(View v) {
 
                 Offer offer = getItem(position);
-                System.out.println("check: " + offer.getOfferName());
+                //System.out.println("check: " + offer.getOfferName());
                 Intent mIntent = new Intent(v.getContext(), DetailedOffer.class);
                 mIntent.putExtra("offerTitle", offer.getOfferName());
-                //mIntent.putExtra("offerDescription", offer.getBeschreibung());
-                //todo: give uuid to DetailedOffer so it can access the respective object
                 v.getContext().startActivity(mIntent);
 
             }
@@ -64,7 +62,7 @@ public class CustomAdapter extends ArrayAdapter<Offer> {
 
 
         offerTextBeschreibung.setText(item.getBeschreibung());
-        bewertung.setText("Bewertung");
+        bewertung.setText("Bewertung: " + item.getOfferBewertung());
         offerTextName.setText(item.getOfferName());
         image.setImageResource(R.drawable.p2p_tasten);
         return customView;

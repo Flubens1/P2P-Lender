@@ -90,7 +90,7 @@ public class MyInvestments extends AppCompatActivity {
 
         //Once the list has been prepared appropriately, we use the CustomAdapter class to handle
         //the way it's displayed in a ListView.
-        ListAdapter adapter = new CustomAdapter(this, offers, mail);
+        ListAdapter adapter = new CustomAdapter(this, offers);
         ListView listView = (ListView)findViewById(R.id.investmentListView);
         listView.setAdapter(adapter);
 
