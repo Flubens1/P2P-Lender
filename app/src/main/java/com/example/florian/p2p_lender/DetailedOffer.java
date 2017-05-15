@@ -22,9 +22,11 @@ import java.util.UUID;
 * to that of the one who pressed it and save it persistently.
  */
 public class DetailedOffer extends AppCompatActivity implements View.OnClickListener{
-    TextView offerTitle, offerDescription, actualOfferTitle, actualOfferDescription;
+    TextView actualOfferTitle;
+    TextView actualOfferDescription;
     TextView actualOfferBetrag;
     TextView actualLaufzeit;
+    TextView actualOfferRating;
     Button investButton;
 
     ArrayList<Offer> offers = null;
@@ -38,7 +40,7 @@ public class DetailedOffer extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed_offer);
-        System.out.println("inside onCreate of DetailedOffer");
+        //System.out.println("inside onCreate of DetailedOffer");
 
         final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         investor = pref.getString("mail", "");
@@ -54,20 +56,20 @@ public class DetailedOffer extends AppCompatActivity implements View.OnClickList
             }
         }
 
-        offerTitle = (TextView) findViewById(R.id.offerTitle);
+        actualOfferRating = (TextView) findViewById(R.id.actualOfferRating);
+        actualOfferRating.setText(actualOffer.getOfferBewertung());
+
         actualOfferTitle = (TextView) findViewById(R.id.actualTitle);
         actualOfferTitle.setText(actualOffer.getOfferName());
 
-        offerDescription = (TextView) findViewById(R.id.offerDescription);
         actualOfferDescription = (TextView) findViewById(R.id.actualDescription);
         actualOfferDescription.setText(actualOffer.getBeschreibung());
 
-        actualLaufzeit = (TextView)findViewById(R.id.detailedOfferActualRunningTime);
+        actualLaufzeit = (TextView) findViewById(R.id.detailedOfferActualRunningTime);
         actualLaufzeit.setText(String.valueOf(actualOffer.getLaufzeit()));
 
-        actualOfferBetrag = (TextView)findViewById(R.id.detailedOfferActualBetrag);
+        actualOfferBetrag = (TextView) findViewById(R.id.detailedOfferActualBetrag);
         actualOfferBetrag.setText(String.valueOf(actualOffer.getBetrag()));
-
 
         investButton = (Button) findViewById(R.id.investInOffer);
         investButton.setOnClickListener(this);
