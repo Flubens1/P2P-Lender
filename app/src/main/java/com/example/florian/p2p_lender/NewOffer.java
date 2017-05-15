@@ -31,7 +31,7 @@ public class NewOffer extends AppCompatActivity{
     EditText laufzeit;
     EditText betrag;
 
-    String mail = "";
+
 
     Context ctx = this;
 
@@ -48,9 +48,12 @@ public class NewOffer extends AppCompatActivity{
         //final String filename = name.getText().toString() + ".txt";
 
         final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-        mail = pref.getString("mail", "");
+        final String mail = pref.getString("mail", "");
+        final String offerBewertung = pref.getString("rating", "");
+
 
         System.out.println("mail = " + mail);
+        System.out.println("offerbewertung = userrating = " + offerBewertung);
 
 
         saveButton = (Button)findViewById(R.id.save);
@@ -58,7 +61,7 @@ public class NewOffer extends AppCompatActivity{
             @Override
             public void onClick(View v) {
 
-                Offer o = new Offer(name.getText().toString(), input.getText().toString(), mail, Integer.parseInt(laufzeit.getText().toString()), Integer.parseInt(betrag.getText().toString()));
+                Offer o = new Offer(name.getText().toString(), input.getText().toString(), mail, Integer.parseInt(laufzeit.getText().toString()), Integer.parseInt(betrag.getText().toString()), offerBewertung);
                 o.setBorrower(mail);
 
                 ctx.getApplicationContext();

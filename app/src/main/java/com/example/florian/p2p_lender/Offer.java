@@ -12,15 +12,17 @@ public class Offer {
     private String investor = null;
     private int laufzeit;
     private int betrag;
+    private String offerBewertung;
 
 
 
-    public Offer(String offerName, String beschreibung, String userMail, int laufzeit, int betrag) {
+    public Offer(String offerName, String beschreibung, String userMail, int laufzeit, int betrag, String userRating) {
         setOfferName(offerName);
         setBeschreibung(beschreibung);
         setBorrower(userMail);
         setLaufzeit(laufzeit);
         setBetrag(betrag);
+        setOfferBewertung(userRating);
     }
 
     public String getBorrower() {
@@ -69,5 +71,13 @@ public class Offer {
 
     public void setBetrag(int betrag) {
         this.betrag = betrag;
+    }
+
+    public String getOfferBewertung() {
+        return offerBewertung;
+    }
+
+    public void setOfferBewertung(String offerBewertung) {
+        this.offerBewertung = offerBewertung;
     }
 }
