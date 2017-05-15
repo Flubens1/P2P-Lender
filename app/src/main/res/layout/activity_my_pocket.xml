@@ -30,35 +30,38 @@
 
     <Button
         android:id="@+id/offerButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginEnd="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
         android:layout_marginStart="0dp"
+        android:layout_marginTop="2dp"
+        android:background="?attr/colorButtonNormal"
         android:elevation="3dp"
         android:padding="0dp"
         android:text="new Offer"
-        android:textSize="10sp"
-        android:layout_marginLeft="0dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="0dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="2dp"
         app:layout_constraintTop_toBottomOf="@+id/loansViewButton"/>
 
     <Button
         android:id="@+id/listViewButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="320dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="-28dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:background="?attr/colorButtonNormal"
+        android:elevation="3dp"
         android:text="LoansList"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:elevation="3dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="-28dp"
         />
 
     <android.support.constraint.ConstraintLayout
