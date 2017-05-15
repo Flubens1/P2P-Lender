@@ -65,10 +65,12 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
                     PersistUser pUser = new PersistUser(ctx);
                     pUser.saveUser(ctx, user);
+                    String rating = user.getRating();
                     SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
                     SharedPreferences.Editor editor = pref.edit();
                     editor.putString("userName", username);
                     editor.putString("mail", mailAddress);
+                    editor.putString("rating", rating);
                     editor.commit();
 
                     Intent intent = new Intent(this, MyPocket.class);

@@ -11,15 +11,15 @@ public class User {
     private String userName;
     private String mailAddress, password;
     private UUID id;
-    private int rating = 0;
+    private String rating = "";
 
     public User(String mail, String password, String userName) {
         setUserName(userName);
         setMailAddress(mail);
         setPassword(password);
         setId();
-        FakeRating fake = new FakeRating();
-        rating = fake.getFakeRating();
+        FakeRating rate = new FakeRating();
+        rating = rate.getRating();
     }
 
 
@@ -35,11 +35,11 @@ public class User {
         this.id = id;
     }
 
-    public int getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 

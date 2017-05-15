@@ -18,6 +18,7 @@ public class MyProfile extends AppCompatActivity {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         String mail = pref.getString("mail", "");
         String name = pref.getString("userName", "");
+        String rating = pref.getString("rating", "");
 
         System.out.println("MyProfile:");
         System.out.println(name);
@@ -27,11 +28,12 @@ public class MyProfile extends AppCompatActivity {
 
         TextView nameTextView = (TextView)findViewById(R.id.userNameTextView);
         nameTextView.setText(name);
-        FakeRating rate = new FakeRating();
+
         TextView ratingView = (TextView) findViewById(R.id.ratingView);
-        ratingView.setText(rate.getRating());
+        ratingView.setText(rating);
 
-
+        // Todo button mit fetch neues rating implementieren und textvie neu setten
+        //FakeRating rate = new FakeRating();
 
     }
 
