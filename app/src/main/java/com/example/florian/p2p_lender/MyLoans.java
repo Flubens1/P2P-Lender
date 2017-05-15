@@ -29,6 +29,9 @@ public class MyLoans extends AppCompatActivity {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         String mail = pref.getString("mail", "");
 
+        //As an array starts at 0, we take the length of the offers list and subtract 1 to avoid
+        //out of bounds problematics.
+
         for (int i = offers.size()-1; i >= 0; i--) {
             if (!offers.get(i).getBorrower().equals(mail)) {
                 offers.remove(offers.get(i));

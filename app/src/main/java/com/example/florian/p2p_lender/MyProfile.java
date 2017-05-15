@@ -86,7 +86,7 @@ public class MyProfile extends AppCompatActivity implements View.OnClickListener
             ratingView.setText(newRating);
             user.setRating(newRating);
             persistUser.changeUser(user);
-            editor.putString("mail", newRating);
+            editor.putString("rating", newRating);
             editor.commit();
             if(newRating.equals("bad")){
                 ratingView.setTextColor(Color.RED);
