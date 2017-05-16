@@ -49,6 +49,7 @@
     <Button
         android:id="@+id/listViewButton"
         style="@style/Widget.AppCompat.Button.Borderless"
+        android:background="?attr/colorButtonNormal"
         android:layout_width="320dp"
         android:layout_height="50dp"
         android:layout_marginBottom="-28dp"
@@ -56,7 +57,6 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:background="?attr/colorButtonNormal"
         android:elevation="3dp"
         android:text="LoansList"
         app:layout_constraintBottom_toBottomOf="parent"

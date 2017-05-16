@@ -8,6 +8,9 @@
 
     <Button
         android:id="@+id/goodButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:background="?attr/colorButtonNormal"
+        android:elevation="3dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -28,6 +31,9 @@
 
     <Button
         android:id="@+id/neutralButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:elevation="3dp"
+        android:background="?attr/colorButtonNormal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -46,6 +52,9 @@
 
     <Button
         android:id="@+id/badButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:background="?attr/colorButtonNormal"
+        android:elevation="3dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
