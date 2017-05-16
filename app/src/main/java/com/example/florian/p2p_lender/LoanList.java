@@ -48,37 +48,22 @@ public class LoanList extends AppCompatActivity {
         goodButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("good click");
-                ArrayList<Offer> goodList = new ArrayList<Offer>();
-
-                for (Offer each : offers) {
-                    if (each.getOfferBewertung().equals("good")) {
-                        goodList.add(each);
-                        System.out.println("each = " + each.getOfferName());
-                        System.out.println("each Bewertung = " + each.getOfferBewertung());
-                        System.out.println("size = " + goodList.size());
-                    }
-                }
-
-                ListAdapter adapter = new CustomAdapter(ctx, goodList);
-                ListView listView = (ListView)findViewById(R.id.loanListView);
-                listView.setAdapter(adapter);
-
+                listFiller("good", offers);
             }
         });
         neutralButton = (Button)findViewById(R.id.neutralButton);
         neutralButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("neutral click");
+                listFiller("neutral", offers);
             }
         });
         badButton = (Button)findViewById(R.id.badButton);
         badButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("bad click");
-            }
+                listFiller("bad", offers);
+                }
         });
 
 
@@ -88,6 +73,18 @@ public class LoanList extends AppCompatActivity {
         listView.setAdapter(adapter);
 
 
+    }
+
+    private void listFiller(String choice, ArrayList<Offer> offers) {
+        ArrayList<Offer> list = new ArrayList<Offer>();
+        for (Offer each : offers) {
+            if (each.getOfferBewertung().equals(choice)) {
+                list.add(each);
+            }
+        }
+        ListAdapter adapter = new CustomAdapter(ctx, list);
+        ListView listView = (ListView)findViewById(R.id.loanListView);
+        listView.setAdapter(adapter);
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
