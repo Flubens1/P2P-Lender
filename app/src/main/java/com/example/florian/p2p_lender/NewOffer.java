@@ -12,13 +12,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+
+/**
+ * Created by flo.
+ */
+
+
 /*
 **
 * This activity is accessed by pressing the "New Offer" button inside MyPocket.
@@ -48,15 +49,9 @@ public class NewOffer extends AppCompatActivity{
         laufzeit = (EditText)findViewById(R.id.newOfferLaufzeit);
         betrag = (EditText)findViewById(R.id.newOfferBetrag);
 
-
         final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         final String mail = pref.getString("mail", "");
         final String offerBewertung = pref.getString("rating", "");
-
-
-        System.out.println("mail = " + mail);
-        System.out.println("offerbewertung = userrating = " + offerBewertung);
-
 
         saveButton = (Button)findViewById(R.id.save);
         saveButton.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +73,6 @@ public class NewOffer extends AppCompatActivity{
 
             }
         });
-
 
 
     }

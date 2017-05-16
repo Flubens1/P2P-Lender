@@ -5,6 +5,11 @@ import android.view.View;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+
+/**
+ * Created by flo.
+ */
+
 /*
 **
 * This particular activity sets the layout and buttons and defines the onClick() method
@@ -12,7 +17,8 @@ import android.widget.Button;
  */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    Button logIn, signUp;
+    Button logIn;
+    Button signUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

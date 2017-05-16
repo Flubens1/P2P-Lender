@@ -3,28 +3,24 @@ package com.example.florian.p2p_lender;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.preference.PreferenceManager;
 import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
-import java.util.Iterator;
 
-import static com.example.florian.p2p_lender.R.id.investViewButton;
-//import static com.example.florian.p2p_lender.R.id.investmentsButton;
-import static com.example.florian.p2p_lender.R.id.start;
+
+/**
+ * Created by flo.
+ */
+
 
 public class MyPocket extends AppCompatActivity implements View.OnClickListener{
 
@@ -57,7 +53,6 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
         loansLayout.setOnClickListener(this);
 
 
-
         // InvestmentsButton mit Daten setten
         totalInvestMents = (TextView)findViewById(R.id.count_invests_textView);
         totalAmount = (TextView)findViewById(R.id.amount_invests_textView);
@@ -74,9 +69,7 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
                         totalInvestments_++;
                         totalamount += each.getBetrag();
                     }
-
                 }
-
             }
             totalInvestMents.setText("Investments: " + String.valueOf(totalInvestments_));
             totalAmount.setText("Amount: " + String.valueOf(totalamount));
@@ -216,7 +209,7 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
         if (v == loansLayout){
             PersistOffers pOffers = new PersistOffers(ctx);
             if (pOffers.getOfferList() == null) {
-                CharSequence text = "There are no Offers to show";
+                CharSequence text = "There are no Loans to show";
                 int duration = Toast.LENGTH_SHORT;
                 Toast toast = Toast.makeText(ctx, text, duration);
                 toast.show();

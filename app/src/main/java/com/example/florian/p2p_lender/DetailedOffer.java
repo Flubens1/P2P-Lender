@@ -11,12 +11,18 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.UUID;
+
+
+/**
+ * Created by flo.
+ */
+
+
 /*
 ** This particular activity is displayed when a row inside the ListView (mInvestments, mLoans and so on)
 * is clicked.
@@ -43,12 +49,10 @@ public class DetailedOffer extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed_offer);
-        //System.out.println("inside onCreate of DetailedOffer");
 
         final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         investor = pref.getString("mail", "");
         String actualTitle = getIntent().getStringExtra("offerTitle");
-
 
         offers = persistOffers.getOfferList();
 

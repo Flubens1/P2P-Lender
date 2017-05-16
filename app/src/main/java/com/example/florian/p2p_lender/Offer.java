@@ -1,6 +1,10 @@
 package com.example.florian.p2p_lender;
 
 /**
+ * Created by flo.
+ */
+
+/**
  * POJO class
  */
 
@@ -13,8 +17,6 @@ public class Offer {
     private int laufzeit;
     private int betrag;
     private String offerBewertung;
-
-
 
     public Offer(String offerName, String beschreibung, String userMail, int laufzeit, int betrag, String userRating) {
         setOfferName(offerName);

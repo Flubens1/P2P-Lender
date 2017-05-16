@@ -11,8 +11,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-
 import java.util.ArrayList;
+
+/**
+ * Created by flo.
+ */
+
 
 public class MyLoans extends AppCompatActivity {
 

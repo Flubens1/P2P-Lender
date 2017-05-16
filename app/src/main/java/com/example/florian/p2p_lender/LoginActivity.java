@@ -44,6 +44,11 @@ import static android.R.attr.y;
 import static com.example.florian.p2p_lender.R.id.email;
 
 /**
+ * Created by flo.
+ */
+
+
+/**
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
