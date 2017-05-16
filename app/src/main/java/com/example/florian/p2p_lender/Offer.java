@@ -18,6 +18,10 @@ public class Offer {
     private int betrag;
     private String offerBewertung;
 
+
+
+    private int interestRate;
+
     public Offer(String offerName, String beschreibung, String userMail, int laufzeit, int betrag, String userRating) {
         setOfferName(offerName);
         setBeschreibung(beschreibung);
@@ -25,6 +29,21 @@ public class Offer {
         setLaufzeit(laufzeit);
         setBetrag(betrag);
         setOfferBewertung(userRating);
+        setInterestRate(userRating);
+    }
+
+    public int getInterestRate() {
+        return interestRate;
+    }
+
+    public void setInterestRate(String userRating) {
+        if (userRating.equals("bad")){
+            interestRate = 9;
+        }else if (userRating.equals("neutral")){
+            interestRate = 5;
+        }else{
+            interestRate = 3;
+        }
     }
 
     public String getBorrower() {

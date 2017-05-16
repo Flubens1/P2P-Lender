@@ -17,7 +17,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         tools:layout_constraintTop_creator="1"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -35,12 +35,15 @@
         tools:layout_constraintBaseline_creator="1"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="8dp" />
+        android:layout_marginLeft="43dp" />
 
     <Button
         android:id="@+id/investInOffer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:elevation="6dp"
+        android:background="?attr/colorButtonNormal"
+        android:layout_width="162dp"
+        android:layout_height="33dp"
         android:text="Invest"
         android:textColor="@android:color/holo_green_dark"
         tools:layout_constraintRight_creator="1"
@@ -48,8 +51,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="95dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:layout_marginBottom="33dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
 
     <TextView
         android:id="@+id/actualTitle"
@@ -60,10 +64,11 @@
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="62dp"
+        android:layout_marginTop="30dp"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.569"/>
 
     <TextView
         android:id="@+id/actualDescription"
@@ -73,11 +78,12 @@
         android:textSize="16sp"
         tools:layout_constraintTop_creator="1"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="279dp"
+        android:layout_marginTop="246dp"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/offerDescription"
-        android:layout_marginLeft="35dp" />
+        android:layout_marginLeft="58dp"
+        />
 
     <TextView
         android:id="@+id/detailedOfferBetrag"
@@ -88,7 +94,7 @@
         android:textStyle="bold"
         android:layout_marginStart="8dp"
         tools:layout_constraintTop_creator="1"
-        android:layout_marginTop="113dp"
+        android:layout_marginTop="83dp"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -120,7 +126,7 @@
         tools:layout_constraintBaseline_creator="1"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="-11dp" />
+        android:layout_marginLeft="8dp" />
 
     <TextView
         android:id="@+id/detailedOfferActualRunningTime"
@@ -138,7 +144,8 @@
         android:layout_marginBottom="72dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@+id/detailedOfferActualBetrag"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintVertical_bias="1.0"/>
 
     <TextView
         android:id="@+id/offerBewertung"
@@ -149,11 +156,8 @@
         android:textStyle="bold"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/offerTitle"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintVertical_bias="0.347" />
+        android:layout_marginTop="55dp"
+        app:layout_constraintTop_toBottomOf="@+id/offerDescription"/>
 
     <TextView
         android:id="@+id/actualOfferRating"
@@ -162,7 +166,30 @@
         android:text="actualOfferRating"
         android:textSize="16sp"
         app:layout_constraintLeft_toRightOf="@+id/offerBewertung"
-        android:layout_marginLeft="84dp"
+        android:layout_marginLeft="98dp"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="321dp" />
+
+    <TextView
+        android:id="@+id/interest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rate of interest"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="121dp"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/actualInterestRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="actual interestrate"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toRightOf="@+id/interest"
+        android:layout_marginLeft="56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="123dp"/>
 </android.support.constraint.ConstraintLayout>

@@ -37,6 +37,7 @@ public class DetailedOffer extends AppCompatActivity implements View.OnClickList
     TextView actualLaufzeit;
     TextView actualOfferRating;
     Button investButton;
+    TextView actualInterestRate;
 
     ArrayList<Offer> offers = null;
     Offer actualOffer = null;
@@ -80,6 +81,8 @@ public class DetailedOffer extends AppCompatActivity implements View.OnClickList
 
         investButton = (Button) findViewById(R.id.investInOffer);
         investButton.setOnClickListener(this);
+        actualInterestRate = (TextView)findViewById(R.id.actualInterestRate);
+        actualInterestRate.setText(actualOffer.getInterestRate() + "%");
 
     }
 
