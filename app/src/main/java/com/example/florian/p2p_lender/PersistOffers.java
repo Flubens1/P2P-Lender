@@ -16,6 +16,9 @@ import java.util.ArrayList;
 /**
  * Created by martin on 05/05/17.
  */
+/*
+    This class handles everything thats related with loading, saving and updating offers in the persistant files
+ */
 
 public class PersistOffers{
     String filename = "offers.json";

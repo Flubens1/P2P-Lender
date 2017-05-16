@@ -1,6 +1,11 @@
 package com.example.florian.p2p_lender;
 
 
+/*
+*This class fakes the connection to the bank account and uses random generated values to deliver a rating
+* Because we are still waiting for an answer from Mr. Möller it is still implementet the way it is now
+*/
+
 import java.util.Random;
 
 public class FakeRating {

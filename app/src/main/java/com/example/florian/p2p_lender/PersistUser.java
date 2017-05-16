@@ -20,6 +20,9 @@ import java.util.List;
 /**
  * Created by martin on 05/05/17.
  */
+/*
+    This class handles everything thats related with loading, saving and updating users in the persistant files
+ */
 
 public class PersistUser {
     String filename = "userList.json";
