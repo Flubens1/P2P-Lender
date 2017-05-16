@@ -40,7 +40,7 @@
     <Button
         android:id="@+id/investInOffer"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:elevation="6dp"
+        android:elevation="3dp"
         android:background="?attr/colorButtonNormal"
         android:layout_width="162dp"
         android:layout_height="33dp"
