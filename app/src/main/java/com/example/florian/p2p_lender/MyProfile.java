@@ -19,6 +19,7 @@ public class MyProfile extends AppCompatActivity implements View.OnClickListener
     Context ctx = this;
     Button ratingButton;
     TextView ratingView;
+    TextView interestRateView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,9 @@ public class MyProfile extends AppCompatActivity implements View.OnClickListener
         } else {
             ratingView.setTextColor(Color.GREEN);
         }
+
+        interestRateView = (TextView) findViewById(R.id.interestRateView);
+        interestRateView.setText(setInterestRate(rating) + "%");
         ratingButton = (Button)findViewById(R.id.newRatingButton);
         ratingButton.setOnClickListener(this);
 
@@ -84,12 +88,14 @@ public class MyProfile extends AppCompatActivity implements View.OnClickListener
             FakeRating fakeRating = new FakeRating();
             String newRating = fakeRating.getRating();
             ratingView.setText(newRating);
+            interestRateView.setText(setInterestRate(newRating) + "%");
             user.setRating(newRating);
             persistUser.changeUser(user);
             editor.putString("rating", newRating);
             editor.commit();
             if(newRating.equals("bad")){
                 ratingView.setTextColor(Color.RED);
+
             }else if (newRating.equals("neutral")){
                 ratingView.setTextColor(Color.DKGRAY);
             } else {
@@ -97,6 +103,16 @@ public class MyProfile extends AppCompatActivity implements View.OnClickListener
             }
 
 
+        }
+    }
+
+    int setInterestRate(String rating){
+        if (rating.equals("bad")){
+            return  9;
+        }else if (rating.equals("neutral")){
+            return  5;
+        }else{
+            return  3;
         }
     }
 

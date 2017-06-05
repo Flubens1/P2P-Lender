@@ -24,13 +24,13 @@
         android:id="@+id/bewertung"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         android:layout_marginStart="8dp"
+        android:text="TextView"
+        tools:layout_constraintTop_creator="1"
         app:layout_constraintLeft_toRightOf="@+id/customRowImage"
         android:layout_marginLeft="8dp"
-        tools:layout_constraintTop_creator="1"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/offerNameText"/>
 
     <TextView
         android:id="@+id/offerNameText"
@@ -41,19 +41,29 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toRightOf="@+id/customRowImage"
-        app:layout_constraintTop_toBottomOf="@+id/bewertung"
-        android:layout_marginLeft="83dp"
-        android:layout_marginTop="0dp" />
+        android:layout_marginLeft="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"/>
 
     <TextView
-        android:id="@+id/offerTextBeschreibung"
-        android:layout_width="243dp"
-        android:layout_height="42dp"
-        android:text="TextView"
+        android:id="@+id/loanAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/offerNameText"
+        android:text="TextView"
         app:layout_constraintLeft_toRightOf="@+id/customRowImage"
-        android:layout_marginLeft="8dp" />
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/bewertung"/>
+
+    <TextView
+        android:id="@+id/rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:text="TextView"
+        app:layout_constraintLeft_toRightOf="@+id/loanAmount"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/bewertung"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -27,16 +27,17 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edittextstyle"
         android:ems="10"
-        android:inputType="textMultiLine"
         android:hint="Describe your offer"
+        android:imeOptions="actionDone"
+        android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newOfferText"
-        app:layout_constraintVertical_bias="0.655"
-        android:background="@drawable/edittextstyle"/>
+        app:layout_constraintVertical_bias="0.655"/>
 
     <Button
         android:id="@+id/save"
@@ -103,13 +104,13 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/edittextstyle"
         android:ems="10"
-        android:hint="Betrag"
+        android:hint="Amount"
         android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/newOfferLaufzeit"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextName"
-        app:layout_constraintVertical_bias="0.505" />
+        app:layout_constraintVertical_bias="0.505"/>
 
     <EditText
         android:id="@+id/newOfferLaufzeit"
@@ -120,11 +121,11 @@
         android:layout_marginRight="8dp"
         android:background="@drawable/edittextstyle"
         android:ems="10"
-        android:hint="Laufzeit in Monaten"
+        android:hint="Duration"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toTopOf="@+id/inputText"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"/>
 
     <!--<shape xmlns:android="http://schemas.android.com/apk/res/android">
         <solid android:color="#ffffff" />

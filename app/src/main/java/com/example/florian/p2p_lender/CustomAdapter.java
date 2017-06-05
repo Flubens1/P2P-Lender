@@ -2,6 +2,7 @@ package com.example.florian.p2p_lender;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -35,10 +36,11 @@ public class CustomAdapter extends ArrayAdapter<Offer> {
         View customView = layoutInflater.inflate(R.layout.custom_row, parent, false);
 
         item = getItem(position);
-        TextView offerTextBeschreibung = (TextView)customView.findViewById(R.id.offerTextBeschreibung);
+        TextView amount = (TextView)customView.findViewById(R.id.loanAmount);
         TextView offerTextName = (TextView)customView.findViewById(R.id.offerNameText);
         ImageView image = (ImageView)customView.findViewById(R.id.customRowImage);
         TextView bewertung = (TextView)customView.findViewById(R.id.bewertung);
+        TextView rate = (TextView)customView.findViewById(R.id.rate);
 
         customView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,8 +55,18 @@ public class CustomAdapter extends ArrayAdapter<Offer> {
         });
 
 
-        offerTextBeschreibung.setText(item.getBeschreibung());
-        bewertung.setText("Bewertung: " + item.getOfferBewertung());
+        amount.setText("Amount: " + item.getBetrag() + ",-");
+        bewertung.setText("Rating: " + item.getOfferBewertung());
+        String rating = item.getOfferBewertung();
+        if(rating.equals("bad")){
+            bewertung.setTextColor(Color.RED);
+
+        }else if (rating.equals("neutral")){
+            bewertung.setTextColor(Color.DKGRAY);
+        } else {
+            bewertung.setTextColor(Color.GREEN);
+        }
+        rate.setText("Interest rate: " + item.getInterestRate() + "%");
         offerTextName.setText(item.getOfferName());
         image.setImageResource(R.drawable.p2p_tasten);
         return customView;

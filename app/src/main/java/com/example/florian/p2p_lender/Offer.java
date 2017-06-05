@@ -17,10 +17,9 @@ public class Offer {
     private int laufzeit;
     private int betrag;
     private String offerBewertung;
-
-
-
     private int interestRate;
+
+
 
     public Offer(String offerName, String beschreibung, String userMail, int laufzeit, int betrag, String userRating) {
         setOfferName(offerName);
