@@ -154,6 +154,7 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
             PersistOffers pOffers = new PersistOffers(ctx);
 
             if (pOffers.getOfferList() == null) {
+                System.out.println("Invest FAIL");
 
                 CharSequence text = "There are no Investments to show";
                 int duration = Toast.LENGTH_SHORT;
@@ -176,7 +177,13 @@ public class MyPocket extends AppCompatActivity implements View.OnClickListener{
                             found = true;
                         }
                     }
-                    if (offers.get(i).getInvestor() == null) {
+                    if (offers.size() == 0) {
+                        CharSequence text = "You have no Investments";
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(ctx, text, duration);
+                        toast.show();
+                        return;
+                    }else if (offers.get(i).getInvestor() == null) {
                         offers.remove(offers.get(i));
                     }
                 }
